@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISOLARTE | Progetto Multiculturale & Fanzine</title>
+    <title>ISOLARTE | Collettivo Artistico & Fanzine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -29,37 +29,195 @@
     <!-- Header / Nav -->
     <header class="border-b border-neutral-800 bg-black/90 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-2xl font-extrabold tracking-widest text-fuchsia uppercase">Isolarte</span>
-            <nav class="space-x-6 text-sm font-semibold">
+            <a href="#" class="text-2xl font-extrabold tracking-widest text-fuchsia uppercase hover:text-citric transition">Isolarte</a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="#artisti" class="text-citric hover:text-white transition">Artisti & Commissioni</a>
                 <a href="#concept" class="hover:text-citric transition">Concept</a>
                 <a href="#isola" class="hover:text-citric transition">L'Isola</a>
                 <a href="#journalzine" class="hover:text-citric transition">Journal-Zine</a>
-                <a href="#progetti" class="hover:text-citric transition">Progetti</a>
+                <a href="#progetti" class="hover:text-citric transition">Progetti & Collab</a>
             </nav>
+            <a href="#artisti" class="text-xs font-bold uppercase bg-fuchsia text-white px-4 py-2 rounded-full hover:bg-citric hover:text-black transition">
+                Commissioni
+            </a>
         </div>
     </header>
 
-    <!-- Hero / Concept Section -->
-    <section id="concept" class="max-w-4xl mx-auto px-6 py-20 text-center">
-        <span class="text-black bg-citric font-bold uppercase tracking-widest text-xs px-3 py-1 rounded-full">
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-6 pt-20 pb-12 text-center">
+        <span class="text-black bg-citric font-bold uppercase tracking-widest text-xs px-3 py-1 rounded-full inline-block mb-4">
             Arte Libera & Indipendente
         </span>
-        <h1 class="text-4xl md:text-6xl font-extrabold mt-6 leading-tight">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
             Dare spazio e visibilità ad artisti ed autori <span class="text-fuchsia">"nascosti"</span>
         </h1>
         <p class="text-neutral-400 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            Isolarte è un progetto multiculturale e multimediale che si svolge prettamente sul territorio, per diffondere cultura, arte e informazione in modo libero, accogliendo chi non ha la possibilità di diffondere le proprie creazioni o è troppo timid* per farlo[cite: 1].
+            Isolarte è un progetto multiculturale e multimediale che si svolge prettamente sul territorio per diffondere cultura, arte e informazione in modo libero.
         </p>
     </section>
 
-    <!-- L'Isola / Lore Section -->
+    <!-- Sezione Commissioni & Portfolio -->
+    <section class="max-w-5xl mx-auto px-6 mb-16">
+        <div class="bg-gradient-to-r from-neutral-900 via-neutral-900 to-black border-2 border-citric/40 rounded-3xl p-8 md:p-10 relative overflow-hidden">
+            <div class="relative z-10 grid md:grid-cols-3 gap-6 items-center">
+                <div class="md:col-span-2">
+                    <span class="text-spearmint font-bold text-xs uppercase tracking-widest">Supporta i residenti dell'isola</span>
+                    <h2 class="text-2xl md:text-3xl font-bold mt-1 text-white">Scopri i portfolio e richiedi commissioni</h2>
+                    <p class="text-neutral-300 text-sm mt-3 leading-relaxed">
+                        Tutti gli artisti del collettivo sono disponibili per illustrazioni, cover art, grafiche editoriali, merchandise ed eventi su misura. Esplora i loro lavori e contattali direttamente.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
+                    <a href="#artisti" class="text-center font-bold bg-citric text-black text-sm px-6 py-3 rounded-xl hover:bg-fuchsia hover:text-white transition">
+                        Vedi gli Artisti ↓
+                    </a>
+                    <a href="mailto:isolarteproject@gmail.com" class="text-center font-bold border border-neutral-700 bg-neutral-800 text-white text-sm px-6 py-3 rounded-xl hover:border-citric transition">
+                        Contatta il Collettivo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Griglia Artisti & Portfolio -->
+    <section id="artisti" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <span class="text-fuchsia font-bold uppercase tracking-widest text-xs">Residenti & Autori</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1">I Nostri Artisti</h2>
+            </div>
+            <p class="text-neutral-400 text-sm max-w-md mt-2 md:mt-0">
+                Clicca su un profilo per visualizzare le opere o richiedere una commissione personalizzata.
+            </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Card Artista: Joke -->
+            <div class="bg-neutral-950 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Joke</h3>
+                        <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">
+                            Open Comms
+                        </span>
+                    </div>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                        Illustrazione digitale, character design, cover art e poster grafici in stile underground/dark.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-[11px] bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md">Digital Art</span>
+                        <span class="text-[11px] bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md">Posters</span>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
+                    <a href="joke.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
+                    <a href="mailto:joke@isolarte.fake?subject=Commissione%20Joke" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">
+                        Commissiona
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card Artista: Gael -->
+            <div class="bg-neutral-950 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Gael</h3>
+                        <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">
+                            Open Comms
+                        </span>
+                    </div>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                        Tratto grezzo, fumetto indie, cartoline punk e reinterpretazioni dell'iconico Isotopo[cite: 1].
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-[11px] bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md">Comics</span>
+                        <span class="text-[11px] bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md">Ink</span>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
+                    <a href="gael.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
+                    <a href="mailto:gael@isolarte.fake?subject=Commissione%20Gael" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">
+                        Commissiona
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card Artista: Katia -->
+            <div class="bg-neutral-950 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Katia</h3>
+                        <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">
+                            Open Comms
+                        </span>
+                    </div>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                        Disegno figurativo, bozzetti su carta a grana ruvida, character styling e sketch art[cite: 1].
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-[11px] bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md">Sketching</span>
+                        <span class="text-[11px] bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md">Tradizionale</span>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
+                    <a href="katia.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
+                    <a href="mailto:katia@isolarte.fake?subject=Commissione%20Katia" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">
+                        Commissiona
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card Artista: Niccolines -->
+            <div class="bg-neutral-950 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-bold text-white">Niccolines</h3>
+                        <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">
+                            Open Comms
+                        </span>
+                    </div>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                        Pittura materica, acrilico, pittura su tela e texture ricche di contrasto[cite: 1].
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="text-[11px] bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md">Pittura</span>
+                        <span class="text-[11px] bg-neutral-900 text-neutral-300 px-2.5 py-1 rounded-md">Acrilico</span>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
+                    <a href="niccolines.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
+                    <a href="mailto:niccolines@isolarte.fake?subject=Commissione%20Niccolines" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">
+                        Commissiona
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card Collettivo / Altri Artisti -->
+            <div class="bg-neutral-900/60 border border-dashed border-neutral-700 rounded-2xl p-6 flex flex-col justify-between text-center items-center">
+                <div class="my-auto py-6">
+                    <span class="text-2xl text-fuchsia font-extrabold">+15 Artisti</span>
+                    <p class="text-xs text-neutral-400 mt-2 max-w-xs">
+                        La rete di Isolarte conta oltre 20 creativi tra illustratori, grafici e autori in costante espansione[cite: 1].
+                    </p>
+                </div>
+                <a href="mailto:isolarteproject@gmail.com?subject=Candidatura%20Artista" class="text-xs font-bold text-citric border border-citric/50 px-4 py-2 rounded-xl hover:bg-citric hover:text-black transition">
+                    Unisciti al Collettivo
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lore / Isola Section -->
     <section id="isola" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800 grid md:grid-cols-2 gap-12 items-center">
         <div>
-            <h2 class="text-3xl font-bold mb-4 text-fuchsia">L'Isola Immaginaria</h2>
+            <span class="text-spearmint font-bold uppercase tracking-widest text-xs">La Mappa & Il Percorso</span>
+            <h2 class="text-3xl font-bold mb-4 text-fuchsia mt-1">L'Isola Immaginaria</h2>
             <p class="text-neutral-300 leading-relaxed mb-4">
-                Tutto si svolge su Isolarte, la terra degli artisti[cite: 1]. Ogni location è uno step che l'artista deve raggiungere per arrivare alla creazione di un pezzo artistico: dal <em class="text-spearmint font-semibold">Vulcano delle Idee</em> al <em class="text-spearmint font-semibold">Tempio dell'Attesa</em>, passando per la <em class="text-spearmint font-semibold">Foresta dei Pensieri</em> e <em class="text-spearmint font-semibold">Artopolis</em>[cite: 1].
+                Tutto si svolge su Isolarte, la terra degli artisti[cite: 1]. Ogni location è uno step che l'artista deve raggiungere per arrivare alla creazione di un'opera: dal <em class="text-spearmint font-semibold">Vulcano delle Idee</em> al <em class="text-spearmint font-semibold">Tempio dell'Attesa</em>, passando per la <em class="text-spearmint font-semibold">Foresta dei Pensieri</em> e <em class="text-spearmint font-semibold">Artopolis</em>[cite: 1].
             </p>
-            <p class="text-neutral-400 leading-relaxed">
+            <p class="text-neutral-400 leading-relaxed text-sm">
                 Ogni artista arriva su Isolarte un po' per caso, per poi decidere se rimanere o andare via[cite: 1].
             </p>
         </div>
@@ -68,7 +226,7 @@
         </div>
     </section>
 
-    <!-- Journal-Zine & Policy Section -->
+    <!-- Journal-Zine & Policy -->
     <section id="journalzine" class="bg-dark py-20 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 bg-black border border-neutral-800 rounded-2xl p-4 flex justify-center">
@@ -76,14 +234,14 @@
             </div>
             <div class="order-1 md:order-2">
                 <span class="text-citric font-bold uppercase tracking-wider text-xs">Pubblicazione Indipendente</span>
-                <h2 class="text-3xl font-bold mt-2 mb-4">La Journal-Zine</h2>
+                <h2 class="text-3xl font-bold mt-2 mb-4 text-white">La Journal-Zine</h2>
                 <p class="text-neutral-300 leading-relaxed mb-4">
-                    Riprendiamo il concetto storico di fanzine per unire l'informazione libera all'esplorazione narrativa del mondo dell'isola[cite: 1]. La lore si sviluppa sia nell'edizione fisica sia sul profilo Instagram[cite: 1].
+                    Riprendiamo il concetto storico di fanzine per unire l'informazione libera all'esplorazione narrativa dell'isola[cite: 1]. La lore si sviluppa sia nell'edizione cartacea distribuita sul territorio, sia nei contenuti digitali su Instagram[cite: 1].
                 </p>
                 <div class="bg-black border-l-4 border-fuchsia p-5 rounded-r-lg mt-6">
                     <h3 class="font-bold text-white mb-1">La Nostra Policy</h3>
                     <p class="text-sm text-neutral-400 leading-relaxed">
-                        Il giornaletto è e sarà <strong class="text-citric">sempre gratuito</strong>[cite: 1]. Per autofinanziarlo realizziamo merchandising a basso costo e spirito punk: spille, cartoline, portachiavi, collane e t-shirt[cite: 1].
+                        Il giornaletto è e sarà <strong class="text-citric">sempre gratuito</strong> per rimanere accessibile a chiunque[cite: 1]. Per sostenere le stampe realizziamo merchandising a basso costo e spirito punk: spille, cartoline, portachiavi, collane e t-shirt[cite: 1].
                     </p>
                 </div>
             </div>
@@ -93,8 +251,8 @@
     <!-- Progetti Recenti & Collaborazioni -->
     <section id="progetti" class="max-w-6xl mx-auto px-6 py-20 border-t border-neutral-800">
         <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold">Progetti & Collaborazioni</h2>
-            <p class="text-neutral-400 mt-2">Dalle cartoline con la mascotte Isotopo agli eventi e progetti sul territorio[cite: 1].</p>
+            <h2 class="text-3xl font-bold text-white">Progetti & Collaborazioni</h2>
+            <p class="text-neutral-400 mt-2">Dalle cartoline con la mascotte Isotopo alle produzioni grafiche con realtà locali[cite: 1].</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-12">
@@ -105,7 +263,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-fuchsia mb-2">Cartoline Mascotte (Isotopo)</h3>
                 <p class="text-neutral-400 text-sm leading-relaxed">
-                    La mascotte di Isolarte reinterpretata in molteplici stili dagli artisti della nostra rete (tra cui Gael, Niccolines, Katia, soste.mere, DOPE)[cite: 1].
+                    La mascotte di Isolarte reinterpretata in stili differenti dagli artisti della nostra rete (tra cui Gael, Niccolines, Katia, soste.mere, DOPE)[cite: 1].
                 </p>
             </div>
 
@@ -116,7 +274,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-citric mb-2">Sul Territorio</h3>
                 <p class="text-neutral-400 text-sm leading-relaxed">
-                    Collaborazioni attive per copertine, merchandise e poster: portachiavi con Versup, copertine con Plaguelabs e memorabilia per il Festival delle Periferie con l'Aula Liberata[cite: 1].
+                    Collaborazioni per copertine, merchandise e poster: portachiavi a tema con Versup, copertine con Plaguelabs e memorabilia per il Festival delle Periferie con l'Aula Liberata[cite: 1].
                 </p>
             </div>
         </div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke | Portfolio & Commissioni - Isolarte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { spearmint: '#4b917d', fuchsia: '#f037a5', citric: '#cdf564' },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white min-h-screen">
+    <header class="border-b border-neutral-800 px-6 py-4 flex justify-between items-center max-w-6xl mx-auto">
+        <a href="index.html" class="text-sm font-bold text-neutral-400 hover:text-citric">← Torna su Isolarte</a>
+        <span class="text-xs bg-spearmint/20 text-spearmint border border-spearmint/30 px-3 py-1 rounded-full font-bold uppercase">Commissioni Aperte</span>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <h1 class="text-5xl font-extrabold text-fuchsia">Joke</h1>
+        <p class="text-neutral-400 text-lg mt-2">Illustratore digitale & Grafico di Isolarte</p>
+
+        <!-- Box Contatto / Commissioni -->
+        <div class="my-8 p-6 bg-neutral-900 border border-neutral-800 rounded-2xl">
+            <h2 class="text-xl font-bold mb-2">Richiedi un'opera personalizzata</h2>
+            <p class="text-sm text-neutral-300 mb-4">Disponibile per copertine musicali, manifesti, merchandising e illustrazioni su richiesta.</p>
+            <a href="mailto:joke@isolarte.fake?subject=Commissione%20per%20Joke" class="inline-block bg-citric text-black font-bold px-6 py-2.5 rounded-xl hover:bg-white transition text-sm">
+                Invia una richiesta via Email
+            </a>
+        </div>
+
+        <!-- Galleria Opere di Joke -->
+        <h2 class="text-2xl font-bold mb-6 mt-12">Opere & Progetti</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-neutral-900 h-64 rounded-xl flex items-center justify-center text-neutral-600 border border-neutral-800">
+                [Inserisci Immagine 1 di Joke]
+            </div>
+            <div class="bg-neutral-900 h-64 rounded-xl flex items-center justify-center text-neutral-600 border border-neutral-800">
+                [Inserisci Immagine 2 di Joke]
+            </div>
+        </div>
+    </main>
+</body>
+</html>
