@@ -24,7 +24,6 @@
         }
     </script>
     <style>
-        /* Sfondo a quadretti geometrici stile foglio tecnico su sfondo scuro */
         .grid-paper-dark {
             background-color: #0d0d0f;
             background-image: 
@@ -35,7 +34,6 @@
             background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
         }
 
-        /* Effetto ombra sagomata per i file PNG */
         .png-art-shadow {
             filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.85));
         }
@@ -43,10 +41,9 @@
 </head>
 <body class="grid-paper-dark text-white min-h-screen selection:bg-citric selection:text-black">
 
-    <!-- Header / Nav (Barra intermedia compatta) -->
+    <!-- Header / Nav -->
     <header class="border-b border-neutral-800/80 bg-black/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-2 flex justify-between items-center">
-            <!-- Logo Navbar misura intermedia -->
             <a href="#" class="flex items-center">
                 <img src="asset/logo-nav.png" alt="Logo Isolarte" class="h-10 md:h-12 w-auto object-contain hover:scale-105 transition duration-200">
             </a>
@@ -63,10 +60,8 @@
         </div>
     </header>
 
-    <!-- Hero Section con Scritta ISOLARTE Extra Large -->
+    <!-- Hero Section -->
     <section id="concept" class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
-        
-        <!-- Scritta / Logo Isolarte di grande impatto -->
         <div class="flex justify-center mb-8">
             <img src="asset/logo-hero.png" alt="Isolarte" class="max-h-56 md:max-h-72 max-w-xl w-auto object-contain png-art-shadow hover:scale-105 transition duration-300">
         </div>
@@ -82,7 +77,7 @@
         </p>
     </section>
 
-    <!-- Sezione Commissioni & Portfolio -->
+    <!-- Sezione Commissioni -->
     <section class="max-w-5xl mx-auto px-6 mb-16">
         <div class="bg-neutral-900/80 backdrop-blur border-2 border-citric/30 rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-2xl">
             <div class="relative z-10 grid md:grid-cols-3 gap-6 items-center">
@@ -105,7 +100,7 @@
         </div>
     </section>
 
-    <!-- Griglia Artisti & Portfolio -->
+    <!-- Griglia Artisti -->
     <section id="artisti" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800/80">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
