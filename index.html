@@ -24,7 +24,7 @@
         }
     </script>
     <style>
-        /* Sfondo a quadretti tipo foglio tecnico/scuola su base scura */
+        /* Sfondo a quadretti geometrici stile foglio tecnico su sfondo scuro */
         .grid-paper-dark {
             background-color: #0d0d0f;
             background-image: 
@@ -35,7 +35,7 @@
             background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
         }
 
-        /* Effetto ombra ritaglio per i PNG trasparenti */
+        /* Effetto ombra sagomata per i file PNG */
         .png-art-shadow {
             filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
         }
@@ -45,8 +45,11 @@
 
     <!-- Header / Nav -->
     <header class="border-b border-neutral-800/80 bg-black/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-extrabold tracking-widest text-fuchsia uppercase hover:text-citric transition">Isolarte</a>
+        <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo Navigazione -->
+            <a href="#" class="flex items-center">
+                <img src="asset/logo-nav.png" alt="Logo Isolarte" class="h-9 md:h-11 w-auto object-contain hover:opacity-85 transition">
+            </a>
             <nav class="hidden md:flex space-x-6 text-sm font-semibold">
                 <a href="#artisti" class="text-citric hover:text-white transition">Artisti & Commissioni</a>
                 <a href="#concept" class="hover:text-citric transition">Concept</a>
@@ -61,7 +64,13 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="concept" class="max-w-4xl mx-auto px-6 pt-20 pb-12 text-center">
+    <section id="concept" class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
+        
+        <!-- Scritta / Logo Grafico Isolarte -->
+        <div class="flex justify-center mb-6">
+            <img src="asset/logo-hero.png" alt="Isolarte" class="max-h-24 md:max-h-32 w-auto object-contain png-art-shadow hover:scale-105 transition duration-300">
+        </div>
+
         <span class="text-black bg-citric font-bold uppercase tracking-widest text-xs px-3 py-1 rounded-full inline-block mb-4">
             Arte Libera & Indipendente
         </span>
@@ -117,7 +126,7 @@
                         <h3 class="text-2xl font-bold text-white">Joke</h3>
                         <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">Open Comms</span>
                     </div>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Illustrazione digitale, character design, cover art e poster grafici underground.</p>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Illustrazione digitale, character design, cover art e poster underground.</p>
                     <div class="flex flex-wrap gap-1.5 mb-6">
                         <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Digital Art</span>
                         <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Posters</span>
@@ -136,7 +145,7 @@
                         <h3 class="text-2xl font-bold text-white">Gael</h3>
                         <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">Open Comms</span>
                     </div>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Tratto grezzo, fumetto indie, cartoline punk e reinterpretazioni dell'iconico Isotopo[cite: 1].</p>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Tratto grezzo, fumetto indie, cartoline punk e reinterpretazioni di Isotopo[cite: 1].</p>
                     <div class="flex flex-wrap gap-1.5 mb-6">
                         <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Comics</span>
                         <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Ink</span>
@@ -155,7 +164,7 @@
                         <h3 class="text-2xl font-bold text-white">Katia</h3>
                         <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">Open Comms</span>
                     </div>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Disegno figurativo, bozzetti su carta a grana ruvida, character styling e sketch art[cite: 1].</p>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Disegno figurativo, bozzetti su carta, character styling e sketch art[cite: 1].</p>
                     <div class="flex flex-wrap gap-1.5 mb-6">
                         <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Sketching</span>
                         <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Tradizionale</span>
@@ -215,7 +224,6 @@
             </p>
         </div>
         <div class="flex justify-center p-4">
-            <!-- PNG Trasparente Mappa -->
             <img src="asset/mappa-isolarte.png" alt="Mappa di Isolarte" class="max-h-[500px] w-auto png-art-shadow hover:scale-105 transition duration-300">
         </div>
     </section>
@@ -224,7 +232,6 @@
     <section id="journalzine" class="py-20 border-t border-neutral-800/80">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 flex justify-center p-4">
-                <!-- PNG Trasparente Zine -->
                 <img src="asset/journal-zine-000.png" alt="Copertina Journal-Zine Giorno 0" class="max-h-[500px] w-auto png-art-shadow hover:rotate-1 transition duration-300">
             </div>
             <div class="order-1 md:order-2">
@@ -254,7 +261,6 @@
             <!-- Box Cartoline -->
             <div class="bg-neutral-900/60 border border-neutral-800 rounded-3xl p-8 backdrop-blur flex flex-col justify-between">
                 <div class="flex justify-center mb-6 py-4">
-                    <!-- PNG Trasparente Cartoline -->
                     <img src="asset/cartoline.png" alt="Cartoline Isotopo" class="max-h-[380px] w-auto png-art-shadow">
                 </div>
                 <div>
@@ -268,7 +274,6 @@
             <!-- Box Collaborazioni -->
             <div class="bg-neutral-900/60 border border-neutral-800 rounded-3xl p-8 backdrop-blur flex flex-col justify-between">
                 <div class="flex justify-center mb-6 py-4">
-                    <!-- PNG Trasparente Collaborazioni -->
                     <img src="asset/collaborazioni.png" alt="Collaborazioni Isolarte" class="max-h-[380px] w-auto png-art-shadow">
                 </div>
                 <div>
