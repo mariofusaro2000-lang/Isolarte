@@ -5,69 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISOLARTE | Progetto Multiculturale & Fanzine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Space Grotesk', sans-serif; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spearmint: '#4b917d',
+                        fuchsia: '#f037a5',
+                        citric: '#cdf564',
+                        dark: '#0a0a0a'
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-stone-900 text-stone-100 min-h-screen">
+<body class="bg-black text-white min-h-screen selection:bg-citric selection:text-black">
 
     <!-- Header / Nav -->
-    <header class="border-b border-stone-800 bg-stone-950/80 backdrop-blur sticky top-0 z-50">
+    <header class="border-b border-neutral-800 bg-black/90 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-2xl font-bold tracking-wider text-pink-500 uppercase">Isolarte</span>
-            <nav class="space-x-6 text-sm font-medium">
-                <a href="#concept" class="hover:text-pink-400 transition">Concept</a>
-                <a href="#isola" class="hover:text-pink-400 transition">L'Isola</a>
-                <a href="#journalzine" class="hover:text-pink-400 transition">Journal-Zine</a>
-                <a href="#progetti" class="hover:text-pink-400 transition">Progetti & Collab</a>
+            <span class="text-2xl font-extrabold tracking-widest text-fuchsia uppercase">Isolarte</span>
+            <nav class="space-x-6 text-sm font-semibold">
+                <a href="#concept" class="hover:text-citric transition">Concept</a>
+                <a href="#isola" class="hover:text-citric transition">L'Isola</a>
+                <a href="#journalzine" class="hover:text-citric transition">Journal-Zine</a>
+                <a href="#progetti" class="hover:text-citric transition">Progetti</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero / Concept Section -->
     <section id="concept" class="max-w-4xl mx-auto px-6 py-20 text-center">
-        <span class="text-pink-500 font-bold uppercase tracking-widest text-xs bg-pink-500/10 px-3 py-1 rounded-full">Arte Libera & Indipendente</span>
+        <span class="text-black bg-citric font-bold uppercase tracking-widest text-xs px-3 py-1 rounded-full">
+            Arte Libera & Indipendente
+        </span>
         <h1 class="text-4xl md:text-6xl font-extrabold mt-6 leading-tight">
-            Dare spazio e visibilità ad artisti ed autori "nascosti"
+            Dare spazio e visibilità ad artisti ed autori <span class="text-fuchsia">"nascosti"</span>
         </h1>
-        <p class="text-stone-400 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            Isolarte è un progetto multiculturale e multimediale che si svolge prettamente sul territorio, per diffondere cultura, arte e informazione in modo libero, accogliendo chi non ha la possibilità di diffondere le proprie creazioni o è troppo timid* per farlo.
+        <p class="text-neutral-400 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+            Isolarte è un progetto multiculturale e multimediale che si svolge prettamente sul territorio, per diffondere cultura, arte e informazione in modo libero, accogliendo chi non ha la possibilità di diffondere le proprie creazioni o è troppo timid* per farlo[cite: 1].
         </p>
     </section>
 
     <!-- L'Isola / Lore Section -->
-    <section id="isola" class="max-w-6xl mx-auto px-6 py-16 border-t border-stone-800 grid md:grid-cols-2 gap-12 items-center">
+    <section id="isola" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800 grid md:grid-cols-2 gap-12 items-center">
         <div>
-            <h2 class="text-3xl font-bold mb-4 text-pink-500">L'Isola Immaginaria</h2>
-            <p class="text-stone-300 leading-relaxed mb-4">
-                Tutto si svolge su Isolarte, la terra degli artisti. Ogni location è uno step che l'artista deve raggiungere per arrivare alla creazione di un pezzo artistico: dal <em>Vulcano delle Idee</em> al <em>Tempio dell'Attesa</em>, passando per la <em>Foresta dei Pensieri</em> e <em>Artopolis</em>.
+            <h2 class="text-3xl font-bold mb-4 text-fuchsia">L'Isola Immaginaria</h2>
+            <p class="text-neutral-300 leading-relaxed mb-4">
+                Tutto si svolge su Isolarte, la terra degli artisti[cite: 1]. Ogni location è uno step che l'artista deve raggiungere per arrivare alla creazione di un pezzo artistico: dal <em class="text-spearmint font-semibold">Vulcano delle Idee</em> al <em class="text-spearmint font-semibold">Tempio dell'Attesa</em>, passando per la <em class="text-spearmint font-semibold">Foresta dei Pensieri</em> e <em class="text-spearmint font-semibold">Artopolis</em>[cite: 1].
             </p>
-            <p class="text-stone-400 leading-relaxed">
-                Ogni artista arriva su Isolarte un po' per caso, per poi decidere se rimanere o andare via.
+            <p class="text-neutral-400 leading-relaxed">
+                Ogni artista arriva su Isolarte un po' per caso, per poi decidere se rimanere o andare via[cite: 1].
             </p>
         </div>
-        <div class="bg-stone-800 border border-stone-700 rounded-2xl overflow-hidden shadow-2xl p-2">
-            <img src="assets/mappa-isolarte.jpg" alt="Mappa di Isolarte" class="rounded-xl w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-500">
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-2">
+            <img src="asset/mappa-isolarte.jpg" alt="Mappa di Isolarte" class="rounded-xl w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-500">
         </div>
     </section>
 
     <!-- Journal-Zine & Policy Section -->
-    <section id="journalzine" class="bg-stone-950 py-20 border-t border-stone-800">
+    <section id="journalzine" class="bg-dark py-20 border-t border-neutral-800">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1 bg-stone-900 border border-stone-800 rounded-2xl p-4 flex justify-center">
-                <img src="assets/journal-zine-000.jpg" alt="Copertina Journal-Zine Giorno 0" class="rounded-xl w-full max-h-[500px] object-contain">
+            <div class="order-2 md:order-1 bg-black border border-neutral-800 rounded-2xl p-4 flex justify-center">
+                <img src="asset/journal-zine-000.jpg" alt="Copertina Journal-Zine Giorno 0" class="rounded-xl w-full max-h-[500px] object-contain">
             </div>
             <div class="order-1 md:order-2">
-                <span class="text-yellow-400 font-bold uppercase tracking-wider text-xs">Pubblicazione Indipendente</span>
+                <span class="text-citric font-bold uppercase tracking-wider text-xs">Pubblicazione Indipendente</span>
                 <h2 class="text-3xl font-bold mt-2 mb-4">La Journal-Zine</h2>
-                <p class="text-stone-300 leading-relaxed mb-4">
-                    Riprendiamo il concetto storico di fanzine per unire l'informazione libera all'esplorazione narrativa del mondo dell'isola. La lore si sviluppa sia nell'edizione fisica (il giornaletto) sia in quella digitale su Instagram.
+                <p class="text-neutral-300 leading-relaxed mb-4">
+                    Riprendiamo il concetto storico di fanzine per unire l'informazione libera all'esplorazione narrativa del mondo dell'isola[cite: 1]. La lore si sviluppa sia nell'edizione fisica sia sul profilo Instagram[cite: 1].
                 </p>
-                <div class="bg-stone-900 border-l-4 border-pink-500 p-4 rounded-r-lg mt-6">
-                    <h3 class="font-bold text-stone-100 mb-1">La Nostra Policy</h3>
-                    <p class="text-sm text-stone-400 leading-relaxed">
-                        Il giornaletto è e sarà <strong>sempre gratuito</strong>. Per autofinanziarlo realizziamo merchandising a basso costo e spirito punk: spille, cartoline, portachiavi, collane e t-shirt.
+                <div class="bg-black border-l-4 border-fuchsia p-5 rounded-r-lg mt-6">
+                    <h3 class="font-bold text-white mb-1">La Nostra Policy</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Il giornaletto è e sarà <strong class="text-citric">sempre gratuito</strong>[cite: 1]. Per autofinanziarlo realizziamo merchandising a basso costo e spirito punk: spille, cartoline, portachiavi, collane e t-shirt[cite: 1].
                     </p>
                 </div>
             </div>
@@ -75,41 +91,41 @@
     </section>
 
     <!-- Progetti Recenti & Collaborazioni -->
-    <section id="progetti" class="max-w-6xl mx-auto px-6 py-20 border-t border-stone-800">
+    <section id="progetti" class="max-w-6xl mx-auto px-6 py-20 border-t border-neutral-800">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-3xl font-bold">Progetti & Collaborazioni</h2>
-            <p class="text-stone-400 mt-2">Dalle cartoline con la mascotte Isotopo agli eventi e progetti sul territorio.</p>
+            <p class="text-neutral-400 mt-2">Dalle cartoline con la mascotte Isotopo agli eventi e progetti sul territorio[cite: 1].</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-12">
             <!-- Box Cartoline / Isotopo -->
-            <div class="bg-stone-950 border border-stone-800 rounded-2xl p-6">
-                <div class="overflow-hidden rounded-xl mb-6 bg-stone-900 flex justify-center">
-                    <img src="assets/cartoline.jpg" alt="Cartoline Isotopo" class="w-full max-h-[450px] object-contain">
+            <div class="bg-neutral-950 border border-neutral-800 rounded-2xl p-6">
+                <div class="overflow-hidden rounded-xl mb-6 bg-black flex justify-center">
+                    <img src="asset/cartoline.jpg" alt="Cartoline Isotopo" class="w-full max-h-[450px] object-contain">
                 </div>
-                <h3 class="text-xl font-bold text-pink-500 mb-2">Cartoline Mascotte (Isotopo)</h3>
-                <p class="text-stone-400 text-sm leading-relaxed">
-                    La mascotte di Isolarte reinterpretata in molteplici stili dagli artisti della nostra rete (tra cui Gael, Niccolines, Katia, soste.mere, DOPE).
+                <h3 class="text-xl font-bold text-fuchsia mb-2">Cartoline Mascotte (Isotopo)</h3>
+                <p class="text-neutral-400 text-sm leading-relaxed">
+                    La mascotte di Isolarte reinterpretata in molteplici stili dagli artisti della nostra rete (tra cui Gael, Niccolines, Katia, soste.mere, DOPE)[cite: 1].
                 </p>
             </div>
 
             <!-- Box Collaborazioni -->
-            <div class="bg-stone-950 border border-stone-800 rounded-2xl p-6">
-                <div class="overflow-hidden rounded-xl mb-6 bg-stone-900 flex justify-center">
-                    <img src="assets/collaborazioni.jpg" alt="Collaborazioni Isolarte" class="w-full max-h-[450px] object-contain">
+            <div class="bg-neutral-950 border border-neutral-800 rounded-2xl p-6">
+                <div class="overflow-hidden rounded-xl mb-6 bg-black flex justify-center">
+                    <img src="asset/collaborazioni.jpg" alt="Collaborazioni Isolarte" class="w-full max-h-[450px] object-contain">
                 </div>
-                <h3 class="text-xl font-bold text-yellow-400 mb-2">Sul Territorio</h3>
-                <p class="text-stone-400 text-sm leading-relaxed">
-                    Collaborazioni attive per copertine, merchandise e poster, come i portachiavi a tema con Versup, copertine con Plaguelabs e memorabilia per il Festival delle Periferie con l'Aula Liberata.
+                <h3 class="text-xl font-bold text-citric mb-2">Sul Territorio</h3>
+                <p class="text-neutral-400 text-sm leading-relaxed">
+                    Collaborazioni attive per copertine, merchandise e poster: portachiavi con Versup, copertine con Plaguelabs e memorabilia per il Festival delle Periferie con l'Aula Liberata[cite: 1].
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-stone-800 py-10 text-center text-xs text-stone-500">
-        <p>© 2026 Isolarte – Circa 20 artisti e in continua espansione.</p>
-        <p class="mt-2">Curiamo eventi, merchandising e progetti creativi indipendenti.</p>
+    <footer class="border-t border-neutral-800 py-10 text-center text-xs text-neutral-500">
+        <p>© 2026 Isolarte – Circa 20 artisti e in continua espansione[cite: 1].</p>
+        <p class="mt-2 text-spearmint font-medium">Curiamo eventi, merchandising e progetti creativi indipendenti[cite: 1].</p>
     </footer>
 
 </body>
