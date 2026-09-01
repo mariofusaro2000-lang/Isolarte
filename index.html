@@ -24,7 +24,6 @@
         }
     </script>
     <style>
-        /* Sfondo a quadretti geometrici stile foglio tecnico su sfondo scuro */
         .grid-paper-dark {
             background-color: #0d0d0f;
             background-image: 
@@ -35,20 +34,19 @@
             background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
         }
 
-        /* Effetto ombra sagomata per i file PNG */
         .png-art-shadow {
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.8));
         }
     </style>
 </head>
 <body class="grid-paper-dark text-white min-h-screen selection:bg-citric selection:text-black">
 
-    <!-- Header / Nav -->
+    <!-- Header / Nav con Logo più grande -->
     <header class="border-b border-neutral-800/80 bg-black/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
-            <!-- Logo Navigazione -->
-            <a href="#" class="flex items-center">
-                <img src="asset/logo-nav.png" alt="Logo Isolarte" class="h-9 md:h-11 w-auto object-contain hover:opacity-85 transition">
+            <!-- Logo Navbar ingrandito e proporzionato -->
+            <a href="#" class="flex items-center py-1">
+                <img src="asset/logo-nav.png" alt="Logo Isolarte" class="h-12 md:h-16 w-auto object-contain hover:scale-105 transition duration-200">
             </a>
             <nav class="hidden md:flex space-x-6 text-sm font-semibold">
                 <a href="#artisti" class="text-citric hover:text-white transition">Artisti & Commissioni</a>
@@ -57,21 +55,21 @@
                 <a href="#journalzine" class="hover:text-citric transition">Journal-Zine</a>
                 <a href="#progetti" class="hover:text-citric transition">Progetti & Collab</a>
             </nav>
-            <a href="#artisti" class="text-xs font-bold uppercase bg-fuchsia text-white px-4 py-2 rounded-full hover:bg-citric hover:text-black transition">
+            <a href="#artisti" class="text-xs font-bold uppercase bg-fuchsia text-white px-5 py-2.5 rounded-full hover:bg-citric hover:text-black transition">
                 Commissioni
             </a>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section con Scritta ISOLARTE d'impatto -->
     <section id="concept" class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
         
-        <!-- Scritta / Logo Grafico Isolarte -->
-        <div class="flex justify-center mb-6">
-            <img src="asset/logo-hero.png" alt="Isolarte" class="max-h-24 md:max-h-32 w-auto object-contain png-art-shadow hover:scale-105 transition duration-300">
+        <!-- Scritta / Logo Isolarte ingrandita -->
+        <div class="flex justify-center mb-8">
+            <img src="asset/logo-hero.png" alt="Isolarte" class="max-h-36 md:max-h-48 w-auto object-contain png-art-shadow hover:scale-105 transition duration-300">
         </div>
 
-        <span class="text-black bg-citric font-bold uppercase tracking-widest text-xs px-3 py-1 rounded-full inline-block mb-4">
+        <span class="text-black bg-citric font-bold uppercase tracking-widest text-xs px-4 py-1.5 rounded-full inline-block mb-5">
             Arte Libera & Indipendente
         </span>
         <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
