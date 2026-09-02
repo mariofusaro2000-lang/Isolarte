@@ -239,12 +239,12 @@
     <section id="progetti" class="max-w-6xl mx-auto px-6 py-20 border-t border-neutral-800/80">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-3xl md:text-4xl font-extrabold text-white">Progetti & Collaborazioni</h2>
-            <p class="text-neutral-400 mt-2 text-sm md:text-base">Dalle presenze dal vivo con banchetti autogestiti alle produzioni d'arte indipendenti.</p>
+            <p class="text-neutral-400 mt-2 text-sm md:text-base">Dalle presenze dal vivo con banchetti autogestiti alle produzioni d'arte indipendenti e videogiochi.</p>
         </div>
 
         <div class="flex flex-col gap-16 max-w-4xl mx-auto">
             
-            <!-- 1. BANCHETTI (Rotazione al passaggio del mouse con hover:rotate-2) -->
+            <!-- 1. BANCHETTI -->
             <div class="py-4">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="w-full aspect-square max-w-[420px] mx-auto flex items-center justify-center rounded-2xl overflow-visible">
@@ -409,6 +409,53 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="border-t border-neutral-800/60"></div>
+
+            <!-- 4. VIDEOGAME KYUNOS (Hunos - America) con Caricamento On-Demand -->
+            <div class="py-6" x-data="{ loaded: false }">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-citric font-bold uppercase tracking-widest text-xs">Game Collab & Sound</span>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-white mt-1">Kyunos: Il Videogioco</h3>
+                    <p class="text-neutral-300 text-sm md:text-base mt-2 leading-relaxed">
+                        Esperienza interattiva creata da Isolarte per la band <strong class="text-fuchsia">Hunos</strong> in occasione dell'uscita del loro ultimo album <em class="text-citric not-italic font-semibold">"America"</em>.
+                    </p>
+                </div>
+
+                <!-- Game Container -->
+                <div class="w-full max-w-3xl mx-auto rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl relative">
+                    
+                    <!-- Schermata di avvio (per non appesantire la pagina finché l'utente non clicca) -->
+                    <div x-show="!loaded" class="w-full aspect-[4/3] md:aspect-[16/10] flex flex-col items-center justify-center p-8 text-center bg-black/60 backdrop-blur-sm">
+                        <span class="text-fuchsia font-extrabold text-4xl mb-3 tracking-wider">KYUNOS</span>
+                        <p class="text-neutral-400 text-sm max-w-md mb-6 leading-relaxed">
+                            Fai clic per caricare il gioco direttamente nella pagina, oppure aprilo su Itch.io in una nuova scheda.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <button @click="loaded = true" type="button"
+                                    class="bg-citric hover:bg-fuchsia text-black hover:text-white font-bold px-6 py-3 rounded-xl transition duration-200 shadow-lg text-sm uppercase tracking-wider">
+                                ▶ Gioca nel Sito
+                            </button>
+                            <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer"
+                               class="bg-neutral-900 border border-neutral-700 hover:border-citric text-white font-bold px-6 py-3 rounded-xl transition duration-200 text-sm uppercase tracking-wider">
+                                Apri su Itch.io ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Iframe Itch.io (si carica solo al click con x-show) -->
+                    <template x-if="loaded">
+                        <div class="w-full aspect-[4/3] md:aspect-[16/10]">
+                            <iframe src="https://itch.io/embed-upload/11261314?color=0d0d0f" 
+                                    allowfullscreen="" 
+                                    width="100%" 
+                                    height="100%" 
+                                    class="w-full h-full border-0">
+                            </iframe>
+                        </div>
+                    </template>
+                </div>
             </div>
 
         </div>
