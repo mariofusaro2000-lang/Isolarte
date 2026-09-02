@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISOLARTE | Collettivo Artistico & Fanzine</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -41,7 +42,6 @@
 </head>
 <body class="grid-paper-dark text-white min-h-screen selection:bg-citric selection:text-black">
 
-    <!-- Header / Nav -->
     <header class="border-b border-neutral-800/80 bg-black/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-2 flex justify-between items-center">
             <a href="#" class="flex items-center">
@@ -60,7 +60,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="concept" class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
         <div class="flex justify-center mb-8">
             <img src="asset/logo-hero.png" alt="Isolarte" class="max-h-56 md:max-h-72 max-w-xl w-auto object-contain png-art-shadow hover:scale-105 transition duration-300">
@@ -77,7 +76,6 @@
         </p>
     </section>
 
-    <!-- Sezione Commissioni -->
     <section class="max-w-5xl mx-auto px-6 mb-16">
         <div class="bg-neutral-900/80 backdrop-blur border-2 border-citric/30 rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-2xl">
             <div class="relative z-10 grid md:grid-cols-3 gap-6 items-center">
@@ -100,7 +98,6 @@
         </div>
     </section>
 
-    <!-- Griglia Artisti -->
     <section id="artisti" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800/80">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
@@ -114,7 +111,6 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <!-- Card Joke -->
             <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
                 <div>
                     <div class="flex justify-between items-start mb-4">
@@ -133,7 +129,6 @@
                 </div>
             </div>
 
-            <!-- Card Gael -->
             <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
                 <div>
                     <div class="flex justify-between items-start mb-4">
@@ -152,7 +147,6 @@
                 </div>
             </div>
 
-            <!-- Card Katia -->
             <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
                 <div>
                     <div class="flex justify-between items-start mb-4">
@@ -171,7 +165,6 @@
                 </div>
             </div>
 
-            <!-- Card Niccolines -->
             <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
                 <div>
                     <div class="flex justify-between items-start mb-4">
@@ -190,7 +183,6 @@
                 </div>
             </div>
 
-            <!-- Card Collettivo -->
             <div class="bg-neutral-950/40 border border-dashed border-neutral-700 rounded-2xl p-6 flex flex-col justify-between text-center items-center backdrop-blur">
                 <div class="my-auto py-6">
                     <span class="text-2xl text-fuchsia font-extrabold">+15 Artisti</span>
@@ -206,7 +198,6 @@
         </div>
     </section>
 
-    <!-- Lore / Isola Section -->
     <section id="isola" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800/80 grid md:grid-cols-2 gap-12 items-center">
         <div>
             <span class="text-spearmint font-bold uppercase tracking-widest text-xs">La Mappa & Il Percorso</span>
@@ -223,7 +214,6 @@
         </div>
     </section>
 
-    <!-- Journal-Zine & Policy -->
     <section id="journalzine" class="py-20 border-t border-neutral-800/80">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 flex justify-center p-4">
@@ -245,7 +235,6 @@
         </div>
     </section>
 
-    <!-- Progetti Recenti & Collaborazioni -->
     <section id="progetti" class="max-w-6xl mx-auto px-6 py-20 border-t border-neutral-800/80">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-3xl font-bold text-white">Progetti & Collaborazioni</h2>
@@ -253,20 +242,55 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-12">
-            <!-- Box Cartoline -->
-            <div class="bg-neutral-900/60 border border-neutral-800 rounded-3xl p-8 backdrop-blur flex flex-col justify-between">
-                <div class="flex justify-center mb-6 py-4">
-                    <img src="asset/cartoline.png" alt="Cartoline Isotopo" class="max-h-[380px] w-auto png-art-shadow">
+            
+            <div class="bg-neutral-900/60 border border-neutral-800 rounded-3xl p-8 backdrop-blur flex flex-col justify-between"
+                 x-data="{
+                    active: 0,
+                    cards: [
+                        { src: 'asset/katia-001.mp4', artist: 'Katia', desc: 'Isotopo reinterpretato con bozzetti figurativi e sketch d\'autore.' },
+                        { src: 'asset/soste-002.mp4', artist: 'soste.mere', desc: 'Stile underground con contrasti netti e approccio indie.' },
+                        { src: 'asset/niccolines-003.mp4', artist: 'Niccolines', desc: 'Tratto materico con texture pittoriche e inchiostro.' },
+                        { src: 'asset/dope-004.mp4', artist: 'DOPE', desc: 'Versione con forte identità street art e linee decise.' }
+                    ],
+                    next() { this.active = (this.active + 1) % this.cards.length; },
+                    prev() { this.active = (this.active - 1 + this.cards.length) % this.cards.length; }
+                 }">
+                
+                <div class="relative w-full aspect-square max-w-[340px] mx-auto mb-6 flex items-center justify-center">
+                    
+                    <button @click="prev()" aria-label="Precedente"
+                            class="absolute left-0 z-20 w-10 h-10 rounded-full bg-neutral-950/80 border border-neutral-700 hover:border-citric text-white hover:text-citric flex items-center justify-center transition shadow-lg text-lg font-bold">
+                        ‹
+                    </button>
+                    <button @click="next()" aria-label="Successiva"
+                            class="absolute right-0 z-20 w-10 h-10 rounded-full bg-neutral-950/80 border border-neutral-700 hover:border-citric text-white hover:text-citric flex items-center justify-center transition shadow-lg text-lg font-bold">
+                        ›
+                    </button>
+
+                    <template x-for="(card, index) in cards" :key="index">
+                        <div x-show="active === index" 
+                             x-transition:enter="transition ease-out duration-300"
+                             x-transition:enter-start="opacity-0 scale-95"
+                             x-transition:enter-end="opacity-100 scale-100"
+                             class="w-full h-full flex items-center justify-center">
+                            <video :src="card.src" autoplay loop muted playsinline 
+                                   class="w-full h-full object-contain rounded-2xl pointer-events-none">
+                            </video>
+                        </div>
+                    </template>
                 </div>
+
                 <div>
-                    <h3 class="text-xl font-bold text-fuchsia mb-2">Cartoline Mascotte (Isotopo)</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed">
-                        La mascotte di Isolarte reinterpretata in stili differenti dagli artisti della nostra rete (tra cui Gael, Niccolines, Katia, soste.mere, DOPE).
-                    </p>
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-xl font-bold text-fuchsia">Cartoline Mascotte (Isotopo)</h3>
+                        <span class="text-xs bg-neutral-800 text-citric px-2.5 py-1 rounded-md font-mono" 
+                              x-text="(active + 1) + ' / ' + cards.length"></span>
+                    </div>
+                    <p class="text-neutral-400 text-sm leading-relaxed" x-text="cards[active].desc"></p>
+                    <p class="text-xs text-spearmint font-bold mt-2 uppercase tracking-wider" x-text="'Autore: ' + cards[active].artist"></p>
                 </div>
             </div>
 
-            <!-- Box Collaborazioni -->
             <div class="bg-neutral-900/60 border border-neutral-800 rounded-3xl p-8 backdrop-blur flex flex-col justify-between">
                 <div class="flex justify-center mb-6 py-4">
                     <img src="asset/collaborazioni.png" alt="Collaborazioni Isolarte" class="max-h-[380px] w-auto png-art-shadow">
@@ -281,7 +305,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="border-t border-neutral-800/80 py-10 text-center text-xs text-neutral-500 bg-black/60">
         <p>© 2026 Isolarte – Circa 20 artisti e in continua espansione.</p>
         <p class="mt-2 text-spearmint font-medium">Curiamo eventi, merchandising e progetti creativi indipendenti.</p>
