@@ -243,7 +243,7 @@
 
         <div class="grid md:grid-cols-2 gap-12">
             
-            <div class="bg-neutral-900/60 border border-neutral-800 rounded-3xl p-8 backdrop-blur flex flex-col justify-between"
+            <div class="bg-neutral-900/60 border border-neutral-800 rounded-3xl p-6 md:p-8 backdrop-blur flex flex-col justify-between"
                  x-data="{
                     active: 0,
                     total: 8,
@@ -251,7 +251,7 @@
                         { artist: 'NonMelo ricordo', desc: 'Isotopo reinterpretato con un graffito su un cartellone pubblicitario.' },
                         { artist: 'Gael', desc: 'Stile underground con contrasti netti e approccio indie.' },
                         { artist: 'Niccolines', desc: 'Tratto materico con texture pittoriche e inchiostro.' },
-                        { artist: 'SOSTE.NERE', desc: 'No vabbe' Rachele!' },
+                        { artist: 'SOSTE.NERE', desc: 'No vabbe\' Rachele!' },
                         { artist: 'Katia', desc: 'Bozzetti su cartoncino ruvido e disegno a mano libera.' },
                         { artist: 'Joe', desc: 'Grafica sperimentale e reinterpretazione alternativa.' },
                         { artist: 'Rumeno', desc: 'Texture e stile grafico esclusivo per la zine.' },
@@ -324,13 +324,15 @@
                 </div>
 
                 <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <h3 class="text-xl font-bold text-fuchsia">Cartoline Mascotte (Isotopo)</h3>
-                        <span class="text-xs bg-neutral-800 text-citric px-2.5 py-1 rounded-md font-mono" 
+                    <div class="flex items-start justify-between gap-4 mb-3">
+                        <h3 class="text-xl md:text-2xl font-extrabold text-fuchsia leading-tight">
+                            Cartoline Mascotte<br class="sm:hidden"><span class="text-citric font-bold text-lg md:text-xl block sm:inline sm:ml-2">(Isotopo)</span>
+                        </h3>
+                        <span class="text-xs bg-neutral-800 text-citric px-2.5 py-1 rounded-md font-mono shrink-0" 
                               x-text="(active + 1) + ' / ' + total"></span>
                     </div>
                     <p class="text-neutral-400 text-sm leading-relaxed" x-text="info[active].desc"></p>
-                    <p class="text-xs text-spearmint font-bold mt-2 uppercase tracking-wider" x-text="'Autore: ' + info[active].artist"></p>
+                    <p class="text-xs text-spearmint font-bold mt-3 uppercase tracking-wider" x-text="'Autore: ' + info[active].artist"></p>
                 </div>
             </div>
 
