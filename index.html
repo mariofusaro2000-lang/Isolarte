@@ -413,7 +413,7 @@
 
             <div class="border-t border-neutral-800/60"></div>
 
-            <!-- 4. VIDEOGAME KYUNOS (Hunos - America) con Caricamento On-Demand -->
+            <!-- 4. VIDEOGAME KYUNOS (Hunos - America) -->
             <div class="py-6" x-data="{ loaded: false }">
                 <div class="text-center max-w-2xl mx-auto mb-8">
                     <span class="text-citric font-bold uppercase tracking-widest text-xs">Game Collab & Sound</span>
@@ -423,31 +423,32 @@
                     </p>
                 </div>
 
-                <!-- Game Container -->
-                <div class="w-full max-w-3xl mx-auto rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl relative">
+                <!-- Game Container: rapporto d'aspetto fedele alla risoluzione nativa 854x500 -->
+                <div class="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl relative">
                     
-                    <!-- Schermata di avvio (per non appesantire la pagina finché l'utente non clicca) -->
-                    <div x-show="!loaded" class="w-full aspect-[4/3] md:aspect-[16/10] flex flex-col items-center justify-center p-8 text-center bg-black/60 backdrop-blur-sm">
-                        <span class="text-fuchsia font-extrabold text-4xl mb-3 tracking-wider">KYUNOS</span>
-                        <p class="text-neutral-400 text-sm max-w-md mb-6 leading-relaxed">
-                            Fai clic per caricare il gioco direttamente nella pagina, oppure aprilo su Itch.io in una nuova scheda.
+                    <!-- Schermata di avvio -->
+                    <div x-show="!loaded" class="w-full aspect-[854/500] min-h-[300px] flex flex-col items-center justify-center p-8 text-center bg-black/60 backdrop-blur-sm">
+                        <span class="text-fuchsia font-extrabold text-4xl md:text-5xl mb-3 tracking-wider">KYUNOS</span>
+                        <p class="text-neutral-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">
+                            Fai clic per caricare il gioco direttamente nella pagina, oppure aprilo su Itch.io a schermo intero.
                         </p>
                         <div class="flex flex-wrap gap-4 justify-center">
                             <button @click="loaded = true" type="button"
-                                    class="bg-citric hover:bg-fuchsia text-black hover:text-white font-bold px-6 py-3 rounded-xl transition duration-200 shadow-lg text-sm uppercase tracking-wider">
+                                    class="bg-citric hover:bg-fuchsia text-black hover:text-white font-bold px-7 py-3.5 rounded-xl transition duration-200 shadow-lg text-sm uppercase tracking-wider cursor-pointer">
                                 ▶ Gioca nel Sito
                             </button>
                             <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer"
-                               class="bg-neutral-900 border border-neutral-700 hover:border-citric text-white font-bold px-6 py-3 rounded-xl transition duration-200 text-sm uppercase tracking-wider">
+                               class="bg-neutral-900 border border-neutral-700 hover:border-citric text-white font-bold px-7 py-3.5 rounded-xl transition duration-200 text-sm uppercase tracking-wider">
                                 Apri su Itch.io ↗
                             </a>
                         </div>
                     </div>
 
-                    <!-- Iframe Itch.io (si carica solo al click con x-show) -->
+                    <!-- Iframe ufficiale con ID 17174825 -->
                     <template x-if="loaded">
-                        <div class="w-full aspect-[4/3] md:aspect-[16/10]">
-                            <iframe src="https://itch.io/embed-upload/11261314?color=0d0d0f" 
+                        <div class="w-full aspect-[854/500] min-h-[320px]">
+                            <iframe src="https://itch.io/embed-upload/17174825?color=0d0d0f" 
+                                    frameborder="0"
                                     allowfullscreen="" 
                                     width="100%" 
                                     height="100%" 
