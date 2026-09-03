@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISOLARTE | Collettivo Artistico & Fanzine</title>
+    <title>The Future | Portfolio Residente Isolarte</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -34,437 +33,93 @@
                 linear-gradient(90deg, rgba(205, 245, 100, 0.02) 1px, transparent 1px);
             background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
         }
-
-        .png-art-shadow {
-            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.85));
-        }
     </style>
 </head>
 <body class="grid-paper-dark text-white min-h-screen selection:bg-citric selection:text-black">
 
+    <!-- Header / Ritorno a Casa -->
     <header class="border-b border-neutral-800/80 bg-black/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-2 flex justify-between items-center">
-            <a href="#" class="flex items-center">
-                <img src="asset/logo-nav.png" alt="Logo Isolarte" class="h-10 md:h-12 w-auto object-contain hover:scale-105 transition duration-200">
+        <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-citric hover:text-white transition">
+                ← Torna a Isolarte
             </a>
-            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-                <a href="#artisti" class="text-citric hover:text-white transition">Artisti & Commissioni</a>
-                <a href="#concept" class="hover:text-citric transition">Concept</a>
-                <a href="#isola" class="hover:text-citric transition">L'Isola</a>
-                <a href="#journalzine" class="hover:text-citric transition">Journal-Zine</a>
-                <a href="#progetti" class="hover:text-citric transition">Progetti & Collab</a>
-            </nav>
-            <a href="#artisti" class="text-xs font-bold uppercase bg-fuchsia text-white px-4 py-2 rounded-full hover:bg-citric hover:text-black transition">
-                Commissioni
+            <span class="text-xs font-mono uppercase bg-neutral-900 border border-neutral-800 text-neutral-400 px-3 py-1 rounded-full">
+                Artista Residente #04
+            </span>
+            <a href="mailto:thefuture@isolarte.fake?subject=Commissione%20The%20Future" 
+               class="text-xs font-bold uppercase bg-fuchsia text-white px-4 py-2 rounded-full hover:bg-citric hover:text-black transition">
+                Commissiona
             </a>
         </div>
     </header>
 
-    <section id="concept" class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
-        <div class="flex justify-center mb-8">
-            <img src="asset/logo-hero.png" alt="Isolarte" class="max-h-56 md:max-h-72 max-w-xl w-auto object-contain png-art-shadow hover:scale-105 transition duration-300">
-        </div>
-
-        <span class="text-black bg-citric font-bold uppercase tracking-widest text-xs px-4 py-1.5 rounded-full inline-block mb-5">
-            Arte Libera & Indipendente
-        </span>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-            Dare spazio e visibilità ad artisti ed autori <span class="text-fuchsia">"nascosti"</span>
-        </h1>
-        <p class="text-neutral-400 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            Isolarte è un progetto multiculturale e multimediale che si svolge prettamente sul territorio per diffondere cultura, arte e informazione in modo libero, accogliendo chi non ha la possibilità di diffondere le proprie creazioni o è troppo timid* per farlo.
-        </p>
-    </section>
-
-    <section class="max-w-5xl mx-auto px-6 mb-16">
-        <div class="bg-neutral-900/80 backdrop-blur border-2 border-citric/30 rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-2xl">
-            <div class="relative z-10 grid md:grid-cols-3 gap-6 items-center">
-                <div class="md:col-span-2">
-                    <span class="text-spearmint font-bold text-xs uppercase tracking-widest">Supporta i residenti dell'isola</span>
-                    <h2 class="text-2xl md:text-3xl font-bold mt-1 text-white">Scopri i portfolio e richiedi commissioni</h2>
-                    <p class="text-neutral-300 text-sm mt-3 leading-relaxed">
-                        Tutti gli artisti del collettivo sono disponibili per illustrazioni, cover art, grafiche editoriali, merchandising ed eventi su misura. Esplora i loro lavori e contattali direttamente.
-                    </p>
-                </div>
-                <div class="flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
-                    <a href="#artisti" class="text-center font-bold bg-citric text-black text-sm px-6 py-3 rounded-xl hover:bg-fuchsia hover:text-white transition">
-                        Vedi gli Artisti ↓
-                    </a>
-                    <a href="mailto:isolarteproject@gmail.com" class="text-center font-bold border border-neutral-700 bg-neutral-800 text-white text-sm px-6 py-3 rounded-xl hover:border-citric transition">
-                        Contatta il Collettivo
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="artisti" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800/80">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+    <!-- Bio & Hero Artista -->
+    <section class="max-w-5xl mx-auto px-6 pt-16 pb-12">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-b border-neutral-800 pb-12">
             <div>
-                <span class="text-fuchsia font-bold uppercase tracking-widest text-xs">Residenti & Autori</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1">I Nostri Artisti</h2>
+                <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Game Design & Pixel Art</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mt-1 tracking-tight">The Future</h1>
+                <p class="text-neutral-400 text-base md:text-lg mt-4 max-w-xl leading-relaxed">
+                    Sviluppatore, sound visualist e grafico dell'isola. Costruisce mondi interattivi low-res, copertine sintetiche ed esperimenti videoludici su commissione per musicisti e progetti editoriali.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-6">
+                    <span class="text-xs bg-neutral-900 border border-neutral-800 text-citric px-3 py-1.5 rounded-lg">Kyunos The Game</span>
+                    <span class="text-xs bg-neutral-900 border border-neutral-800 text-citric px-3 py-1.5 rounded-lg">Interactive Art</span>
+                    <span class="text-xs bg-neutral-900 border border-neutral-800 text-citric px-3 py-1.5 rounded-lg">Web Games</span>
+                </div>
             </div>
-            <p class="text-neutral-400 text-sm max-w-md mt-2 md:mt-0">
-                Clicca su un profilo per visualizzare le opere o richiedere una commissione personalizzata.
-            </p>
+
+            <!-- Box Status Commissioni -->
+            <div class="w-full md:w-auto bg-neutral-900/80 border border-neutral-800 rounded-2xl p-6 backdrop-blur shrink-0">
+                <span class="text-[11px] font-bold text-spearmint uppercase tracking-widest block mb-2">Disponibilità</span>
+                <p class="text-xl font-extrabold text-citric">Aperto alle Commissioni</p>
+                <p class="text-xs text-neutral-400 mt-1 max-w-[220px]">
+                    Progetti videoludici per band, cover digitali, pixel art e asset interattivi.
+                </p>
+                <a href="mailto:thefuture@isolarte.fake?subject=Commissione%20The%20Future" 
+                   class="block text-center mt-5 bg-citric hover:bg-fuchsia text-black hover:text-white font-bold text-xs py-2.5 px-4 rounded-xl transition">
+                    Invia una Proposta
+                </a>
+            </div>
         </div>
+    </section>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Galleria Opere / Progetti di The Future -->
+    <section class="max-w-5xl mx-auto px-6 py-12">
+        <h2 class="text-2xl font-bold text-white mb-8">Lavori in Evidenza</h2>
 
-            <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Progetto 1: Kyunos -->
+            <div class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 flex flex-col justify-between">
                 <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-white">Joke</h3>
-                        <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">Open Comms</span>
+                    <div class="aspect-video w-full bg-black rounded-xl overflow-hidden mb-4 border border-neutral-800 flex items-center justify-center">
+                        <span class="text-fuchsia font-extrabold text-2xl tracking-widest">KYUNOS 1.0</span>
                     </div>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Illustrazione digitale, character design, cover art e poster underground.</p>
-                    <div class="flex flex-wrap gap-1.5 mb-6">
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Digital Art</span>
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Posters</span>
-                    </div>
-                </div>
-                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-                    <a href="joke.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
-                    <a href="mailto:joke@isolarte.fake?subject=Commissione%20Joke" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">Commissiona</a>
-                </div>
-            </div>
-
-            <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-white">Gael</h3>
-                        <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">Open Comms</span>
-                    </div>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Tratto grezzo, fumetto indie, cartoline punk e reinterpretazioni di Isotopo.</p>
-                    <div class="flex flex-wrap gap-1.5 mb-6">
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Comics</span>
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Ink</span>
-                    </div>
-                </div>
-                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-                    <a href="gael.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
-                    <a href="mailto:gael@isolarte.fake?subject=Commissione%20Gael" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">Commissiona</a>
-                </div>
-            </div>
-
-            <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-white">Katia</h3>
-                        <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">Open Comms</span>
-                    </div>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Disegno figurativo, bozzetti su carta, character styling e sketch art.</p>
-                    <div class="flex flex-wrap gap-1.5 mb-6">
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Sketching</span>
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Tradizionale</span>
-                    </div>
-                </div>
-                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-                    <a href="katia.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
-                    <a href="mailto:katia@isolarte.fake?subject=Commissione%20Katia" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">Commissiona</a>
-                </div>
-            </div>
-
-            <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-white">Niccolines</h3>
-                        <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">Open Comms</span>
-                    </div>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Pittura materica, acrilico su tela e contrasti intensi.</p>
-                    <div class="flex flex-wrap gap-1.5 mb-6">
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Pittura</span>
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Acrilico</span>
-                    </div>
-                </div>
-                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-                    <a href="niccolines.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
-                    <a href="mailto:niccolines@isolarte.fake?subject=Commissione%20Niccolines" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">Commissiona</a>
-                </div>
-            </div>
-
-            <div class="bg-neutral-950/40 border border-dashed border-neutral-700 rounded-2xl p-6 flex flex-col justify-between text-center items-center backdrop-blur">
-                <div class="my-auto py-6">
-                    <span class="text-2xl text-fuchsia font-extrabold">+15 Artisti</span>
-                    <p class="text-xs text-neutral-400 mt-2 max-w-xs">
-                        La rete di Isolarte conta oltre 20 creativi tra illustratori, grafici e autori in costante espansione.
+                    <h3 class="text-xl font-bold text-white mb-2">Kyunos: The Game (Band Hunos)</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                        Il videogioco promozionale dell'album "America". Un viaggio visivo e sonoro interattivo creato su misura per l'estetica della band.
                     </p>
                 </div>
-                <a href="mailto:isolarteproject@gmail.com?subject=Candidatura%20Artista" class="text-xs font-bold text-citric border border-citric/50 px-4 py-2 rounded-xl hover:bg-citric hover:text-black transition">
-                    Unisciti al Collettivo
+                <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer" 
+                   class="text-xs font-bold text-citric hover:underline">
+                    Gioca su Itch.io ↗
                 </a>
             </div>
 
-        </div>
-    </section>
-
-    <section id="isola" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800/80 grid md:grid-cols-2 gap-12 items-center">
-        <div>
-            <span class="text-spearmint font-bold uppercase tracking-widest text-xs">La Mappa & Il Percorso</span>
-            <h2 class="text-3xl font-bold mb-4 text-fuchsia mt-1">L'Isola Immaginaria</h2>
-            <p class="text-neutral-300 leading-relaxed mb-4">
-                Tutto si svolge su Isolarte, la terra degli artisti. Ogni location è uno step che l'artista deve raggiungere per arrivare alla creazione di un'opera: dal <em class="text-spearmint font-semibold">Vulcano delle Idee</em> al <em class="text-spearmint font-semibold">Tempio dell'Attesa</em>, passando per la <em class="text-spearmint font-semibold">Foresta dei Pensieri</em> e <em class="text-spearmint font-semibold">Artopolis</em>.
-            </p>
-            <p class="text-neutral-400 leading-relaxed text-sm">
-                Ogni artista arriva su Isolarte un po' per caso, per poi decidere se rimanere o andare via.
-            </p>
-        </div>
-        <div class="flex justify-center p-4">
-            <img src="asset/mappa-isolarte.png" alt="Mappa di Isolarte" class="max-h-[500px] w-auto png-art-shadow hover:scale-105 transition duration-300">
-        </div>
-    </section>
-
-    <section id="journalzine" class="py-20 border-t border-neutral-800/80">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1 flex justify-center p-4">
-                <img src="asset/journal-zine-000.png" alt="Copertina Journal-Zine Giorno 0" class="max-h-[500px] w-auto png-art-shadow hover:rotate-1 transition duration-300">
-            </div>
-            <div class="order-1 md:order-2">
-                <span class="text-citric font-bold uppercase tracking-wider text-xs">Pubblicazione Indipendente</span>
-                <h2 class="text-3xl font-bold mt-2 mb-4 text-white">La Journal-Zine</h2>
-                <p class="text-neutral-300 leading-relaxed mb-4">
-                    Riprendiamo il concetto storico di fanzine per unire l'informazione libera all'esplorazione narrativa dell'isola. La lore si sviluppa sia nell'edizione cartacea distribuita sul territorio, sia nei contenuti digitali su Instagram.
+            <!-- Progetto 2: Slot Placeholder per i prossimi lavori -->
+            <div class="bg-neutral-900/30 border border-dashed border-neutral-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center">
+                <span class="text-neutral-600 font-extrabold text-3xl mb-2">[ + ]</span>
+                <h3 class="text-lg font-bold text-neutral-300">Prossimo Progetto</h3>
+                <p class="text-xs text-neutral-500 max-w-xs mt-1">
+                    Spazio riservato a nuove uscite, illustrazioni o shader interattivi in arrivo su Isolarte.
                 </p>
-                <div class="bg-neutral-900/90 border-l-4 border-fuchsia p-5 rounded-r-lg mt-6 shadow-xl">
-                    <h3 class="font-bold text-white mb-1">La Nostra Policy</h3>
-                    <p class="text-sm text-neutral-400 leading-relaxed">
-                        Il giornaletto è e sarà <strong class="text-citric">sempre gratuito</strong> per rimanere accessibile a chiunque. Per sostenere le stampe realizziamo merchandising a basso costo e spirito punk: spille, cartoline, portachiavi, collane e t-shirt.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- PROGETTI & COLLABORAZIONI -->
-    <section id="progetti" class="max-w-6xl mx-auto px-6 py-20 border-t border-neutral-800/80">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-white">Progetti & Collaborazioni</h2>
-            <p class="text-neutral-400 mt-2 text-sm md:text-base">Dalle presenze dal vivo con banchetti autogestiti alle produzioni d'arte indipendenti e videogiochi.</p>
-        </div>
-
-        <div class="flex flex-col gap-16 max-w-4xl mx-auto">
-            
-            <!-- 1. BANCHETTI -->
-            <div class="py-4">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="w-full aspect-square max-w-[420px] mx-auto flex items-center justify-center rounded-2xl overflow-visible">
-                        <img src="asset/banchetto.png" alt="Banchetti Isolarte" class="w-full h-full object-cover rounded-2xl png-art-shadow hover:rotate-2 hover:scale-100 transition duration-300">
-                    </div>
-                    <div class="flex flex-col justify-between h-full py-2">
-                        <div>
-                            <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Territorio & Azione Dal Vivo</span>
-                            <h3 class="text-3xl md:text-4xl font-extrabold text-citric mt-1 mb-4">Banchetti</h3>
-                            <p class="text-neutral-300 text-sm md:text-base leading-relaxed mb-4">
-                                Portiamo l'arte direttamente tra le persone con i nostri banchetti dal vivo: distribuiamo gratuitamente le copie cartacee della <strong class="text-white">Journal-Zine</strong> e sosteniamo le produzioni indipendenti con poster esclusivi, merchandising d'autore, portachiavi, cartoline e spille realizzate dagli artisti del collettivo.
-                            </p>
-                            <p class="text-neutral-400 text-xs md:text-sm leading-relaxed mb-6">
-                                Uno spazio di incontro reale per parlare di autoproduzione, scambiare idee e far circolare la cultura senza intermediari.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-2 text-xs">
-                            <span class="text-spearmint font-bold uppercase tracking-wider">Collaborazioni Attive</span>
-                            <span class="text-neutral-300 font-medium">Festival delle Periferie (Aula Liberata)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-neutral-800/60"></div>
-
-            <!-- 2. CARTOLINE MASCOTTE -->
-            <div class="py-4"
-                 x-data="{
-                    active: 0,
-                    total: 8,
-                    info: [
-                        { artist: 'NonMelo ricordo', desc: 'Isotopo reinterpretato con un graffito su un cartellone pubblicitario.' },
-                        { artist: 'Gael', desc: 'Stile underground con contrasti netti e approccio indie.' },
-                        { artist: 'Niccolines', desc: 'Tratto materico con texture pittoriche e inchiostro.' },
-                        { artist: 'SOSTE.NERE', desc: 'No vabbe\' Rachele!' },
-                        { artist: 'Katia', desc: 'Bozzetti su cartoncino ruvido e disegno a mano libera.' },
-                        { artist: 'Joe', desc: 'Grafica sperimentale e reinterpretazione alternativa.' },
-                        { artist: 'Rumeno', desc: 'Texture e stile grafico esclusivo per la zine.' },
-                        { artist: 'Jokee', desc: 'Edizione speciale holo.' }
-                    ],
-                    next() { 
-                        this.active = (this.active + 1) % this.total; 
-                        this.$nextTick(() => { this.playActive(); });
-                    },
-                    prev() { 
-                        this.active = (this.active - 1 + this.total) % this.total; 
-                        this.$nextTick(() => { this.playActive(); });
-                    },
-                    playActive() {
-                        let v = document.getElementById('cartolina-vid-' + this.active);
-                        if (v) { v.currentTime = 0; v.play(); }
-                    }
-                 }">
-                
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="relative w-full aspect-square max-w-[420px] mx-auto flex items-center justify-center rounded-2xl overflow-hidden">
-                        <button @click="prev()" type="button" aria-label="Precedente"
-                                class="absolute left-3 z-30 w-11 h-11 rounded-full bg-black/80 border border-neutral-700 hover:border-citric text-white hover:text-citric flex items-center justify-center transition shadow-lg text-xl font-bold cursor-pointer">
-                            ‹
-                        </button>
-                        <button @click="next()" type="button" aria-label="Successiva"
-                                class="absolute right-3 z-30 w-11 h-11 rounded-full bg-black/80 border border-neutral-700 hover:border-citric text-white hover:text-citric flex items-center justify-center transition shadow-lg text-xl font-bold cursor-pointer">
-                            ›
-                        </button>
-
-                        <video id="cartolina-vid-0" x-show="active === 0" src="asset/cartolina1.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-1" x-show="active === 1" src="asset/cartolina2.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-2" x-show="active === 2" src="asset/cartolina3.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-3" x-show="active === 3" src="asset/cartolina4.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-4" x-show="active === 4" src="asset/cartolina5.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-5" x-show="active === 5" src="asset/cartolina6.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-6" x-show="active === 6" src="asset/cartolina7.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-7" x-show="active === 7" src="asset/cartolina9.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                    </div>
-
-                    <div class="flex flex-col justify-between h-full py-2">
-                        <div>
-                            <div class="flex items-start justify-between gap-4 mb-3">
-                                <div>
-                                    <span class="text-citric font-bold uppercase tracking-widest text-xs">Serie Collezionabile</span>
-                                    <h3 class="text-3xl md:text-4xl font-extrabold text-fuchsia mt-1">
-                                        Cartoline Mascotte <span class="text-citric text-2xl md:text-3xl font-bold">(Isotopo)</span>
-                                    </h3>
-                                </div>
-                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-citric px-3 py-1.5 rounded-md font-mono shrink-0" 
-                                      x-text="(active + 1) + ' / ' + total"></span>
-                            </div>
-                            <p class="text-neutral-300 text-sm md:text-base leading-relaxed mb-4" x-text="info[active].desc"></p>
-                            <p class="text-neutral-400 text-xs md:text-sm leading-relaxed mb-6">
-                                Ogni artista dell'isola reinterpreta la mascotte Isotopo secondo il proprio linguaggio visivo, tecnica e supporto.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-neutral-800/80 flex items-center justify-between text-xs">
-                            <span class="text-neutral-400 uppercase tracking-wider font-semibold">Creatore</span>
-                            <span class="text-spearmint font-bold text-sm tracking-wider uppercase" x-text="info[active].artist"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-neutral-800/60"></div>
-
-            <!-- 3. FIAMMIFERI & SOLDO (AFFIANCATI) -->
-            <div class="grid md:grid-cols-2 gap-10">
-                
-                <!-- Box Fiammiferi -->
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <div class="w-full aspect-square max-w-[360px] mx-auto mb-6 flex items-center justify-center rounded-2xl overflow-hidden">
-                            <img src="asset/fiammiferi.png" alt="Scatole di Fiammiferi d'Autore" class="w-full h-full object-contain png-art-shadow hover:scale-105 transition duration-300">
-                        </div>
-                        <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Advertising & Satira</span>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-white mt-1 mb-3">Scatole di Fiammiferi</h3>
-                        <p class="text-neutral-300 text-sm leading-relaxed mb-3">
-                            Un'esplorazione sul supporto tascabile: i residenti del collettivo hanno reinterpretato il concept della pubblicità su scatole di fiammiferi. Dalle campagne sociali contro il fumo fino all'assurdo (vendita di pomodori e pesce-pomodoro), arrivando alla promozione web e all'autopromozione di Isolarte stessa, dove gli illustratori finiscono ritratti all'interno della grafica.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-neutral-800/80 text-xs text-neutral-400">
-                        Concept: <span class="text-citric font-bold">Reinterpretazione Pubblicitaria</span>
-                    </div>
-                </div>
-
-                <!-- Box Soldo -->
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <div class="w-full aspect-square max-w-[360px] mx-auto mb-6 flex items-center justify-center rounded-2xl overflow-hidden">
-                            <img src="asset/soldo.png" alt="Quadro Soldo con Specchio" class="w-full h-full object-contain png-art-shadow hover:scale-105 transition duration-300">
-                        </div>
-                        <span class="text-fuchsia font-bold uppercase tracking-widest text-xs">Opera Unica & Riflessione</span>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-citric mt-1 mb-3">Il Soldo</h3>
-                        <p class="text-neutral-300 text-sm leading-relaxed mb-3">
-                            Un quadro scultoreo realizzato da una nostra illustratrice che pone al centro una riflessione sul valore e sull'identità. La moneta dipinta custodisce al suo esatto centro un piccolo specchio: chi osserva l'opera e il valore monetario ci trova riflesso il proprio stesso sguardo.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-neutral-800/80 text-xs text-neutral-400">
-                        Materiali: <span class="text-spearmint font-bold">Tecnica mista & specchio su supporto</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="border-t border-neutral-800/60"></div>
-
-            <!-- 4. VIDEOGAME KYUNOS (Hunos - America) -->
-            <div class="py-6" x-data="{ loaded: false }">
-                <div class="text-center max-w-2xl mx-auto mb-8">
-                    <span class="text-citric font-bold uppercase tracking-widest text-xs">Game Collab & Sound</span>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-white mt-1">Kyunos: Il Videogioco</h3>
-                    <p class="text-neutral-300 text-sm md:text-base mt-2 leading-relaxed">
-                        Esperienza interattiva creata da Isolarte per la band <strong class="text-fuchsia">Hunos</strong> in occasione dell'uscita del loro ultimo album <em class="text-citric not-italic font-semibold">"America"</em>.
-                    </p>
-                </div>
-
-                <!-- Game Container: rapporto d'aspetto fedele alla risoluzione nativa 854x500 -->
-                <div class="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl relative">
-                    
-                    <!-- Schermata di avvio -->
-                    <div x-show="!loaded" class="w-full aspect-[854/500] min-h-[300px] flex flex-col items-center justify-center p-8 text-center bg-black/60 backdrop-blur-sm">
-                        <span class="text-fuchsia font-extrabold text-4xl md:text-5xl mb-3 tracking-wider">KYUNOS</span>
-                        <p class="text-neutral-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">
-                            Fai clic per caricare il gioco direttamente nella pagina, oppure aprilo su Itch.io a schermo intero.
-                        </p>
-                        <div class="flex flex-wrap gap-4 justify-center">
-                            <button @click="loaded = true" type="button"
-                                    class="bg-citric hover:bg-fuchsia text-black hover:text-white font-bold px-7 py-3.5 rounded-xl transition duration-200 shadow-lg text-sm uppercase tracking-wider cursor-pointer">
-                                ▶ Gioca nel Sito
-                            </button>
-                            <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer"
-                               class="bg-neutral-900 border border-neutral-700 hover:border-citric text-white font-bold px-7 py-3.5 rounded-xl transition duration-200 text-sm uppercase tracking-wider">
-                                Apri su Itch.io ↗
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Iframe ufficiale con ID 17174825 -->
-                    <template x-if="loaded">
-                        <div class="w-full aspect-[854/500] min-h-[320px]">
-                            <iframe src="https://itch.io/embed-upload/17174825?color=0d0d0f" 
-                                    frameborder="0"
-                                    allowfullscreen="" 
-                                    width="100%" 
-                                    height="100%" 
-                                    class="w-full h-full border-0">
-                            </iframe>
-                        </div>
-                    </template>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <footer class="border-t border-neutral-800/80 py-10 text-center text-xs text-neutral-500 bg-black/60">
-        <p>© 2026 Isolarte – Circa 20 artisti e in continua espansione.</p>
-        <p class="mt-2 text-spearmint font-medium">Curiamo eventi, merchandising e progetti creativi indipendenti.</p>
+    <footer class="border-t border-neutral-800/80 py-10 text-center text-xs text-neutral-500 bg-black/60 mt-16">
+        <p>© 2026 The Future × Isolarte.</p>
+        <a href="index.html" class="mt-2 inline-block text-citric hover:underline">Torna alla schermata principale</a>
     </footer>
 
 </body>
