@@ -38,14 +38,19 @@
             filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.85));
         }
 
-        /* Pannello Bacheca di Sughero */
+        /* Bacheca di Sughero Pura: nessun overlay o alone nero */
         .cork-panel {
-            background-color: #1a1512;
-            background-image: linear-gradient(rgba(10, 10, 12, 0.82), rgba(10, 10, 12, 0.88)), url('asset/sughero.png');
+            background-color: #b78351;
+            background-image: url('asset/sughero.png');
             background-size: cover;
             background-position: center;
-            border: 2px solid rgba(205, 245, 100, 0.2);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(205, 245, 100, 0.3);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85);
+        }
+
+        /* Leggera ombra di lettura per non affaticare la vista sul sughero */
+        .cork-text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
         }
     </style>
 </head>
@@ -80,16 +85,16 @@
             </p>
         </section>
 
-        <!-- 1. Sezione Background: Statistica (Pannello Sughero) -->
-        <section class="cork-panel rounded-3xl p-8 md:p-12">
+        <!-- 1. Sezione Background: Statistica (Sughero Puro) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12 cork-text-shadow">
             <div class="grid md:grid-cols-3 gap-8 items-center">
                 <div class="md:col-span-2">
-                    <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Background Accademico</span>
+                    <span class="text-citric font-bold uppercase tracking-widest text-xs">Background Accademico</span>
                     <h2 class="text-2xl md:text-3xl font-bold text-white mt-1 mb-4">Statistica per l'azienda (ma nulla di serio)</h2>
-                    <p class="text-neutral-200 text-sm md:text-base leading-relaxed mb-4">
-                        Laureato nel 2025 all'Unical con una tesi sulla creazione e implementazione di un database gestionale per un recovery center per animali selvatici. Ho lavorato come tirocinante curriculare per <em class="text-white not-italic font-semibold">Internet e Idee Srl</em> curando un progetto specifico sull'anticorruzione.
+                    <p class="text-neutral-100 text-sm md:text-base leading-relaxed mb-4">
+                        Laureato nel 2025 all'Unical con una tesi sulla creazione e implementazione di un database gestionale per un recovery center per animali selvatici. Ho lavorato come tirocinante curriculare per <em class="text-white not-italic font-bold">Internet e Idee Srl</em> curando un progetto specifico sull'anticorruzione.
                     </p>
-                    <p class="text-neutral-400 text-sm italic">
+                    <p class="text-neutral-200 text-sm italic">
                         "Da quest'inizio può sembrare che passi le mie giornate davanti a computer grigi a guardare numeri e big data scorrere come i pazzi... ma..."
                     </p>
                 </div>
@@ -99,11 +104,11 @@
             </div>
         </section>
 
-        <!-- 2. Sezione Videomaking (Pannello Sughero) -->
-        <section class="cork-panel rounded-3xl p-8 md:p-12">
-            <span class="text-fuchsia font-bold uppercase tracking-widest text-xs">Video & Montaggio</span>
+        <!-- 2. Sezione Videomaking (Sughero Puro) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12 cork-text-shadow">
+            <span class="text-citric font-bold uppercase tracking-widest text-xs">Video & Montaggio</span>
             <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">Videomaker</h2>
-            <p class="text-neutral-200 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+            <p class="text-neutral-100 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
                 Monto video da quando ero ragazzino: da piccolo avrei voluto fare lo YouTuber. Negli anni ho lavorato per progetti privati, collaborazioni con amici e commissioni professionali tra regia, montaggio e color correction.
             </p>
 
@@ -129,19 +134,19 @@
                 </div>
 
                 <!-- Altri Lavori Video -->
-                <div class="grid sm:grid-cols-2 gap-6 pt-4 border-t border-white/10">
+                <div class="grid sm:grid-cols-2 gap-6 pt-4 border-t border-black/30">
                     <div>
-                        <span class="text-xs text-neutral-400 font-mono">ShowReel</span>
+                        <span class="text-xs text-neutral-200 font-mono">ShowReel</span>
                         <h4 class="text-lg font-bold text-white mt-1 mb-1">2D FX Animator ShowReel</h4>
-                        <p class="text-neutral-300 text-sm leading-relaxed">
+                        <p class="text-neutral-100 text-sm leading-relaxed">
                             Montaggio e ritmo visivo dedicato al reel di presentazione per un'amic* animatore 2D FX.
                         </p>
                     </div>
 
                     <div>
-                        <span class="text-xs text-neutral-400 font-mono">Cortometraggi / Reel</span>
+                        <span class="text-xs text-neutral-200 font-mono">Cortometraggi / Reel</span>
                         <h4 class="text-lg font-bold text-white mt-1 mb-1">Corti Sven</h4>
-                        <p class="text-neutral-300 text-sm leading-relaxed mb-2">
+                        <p class="text-neutral-100 text-sm leading-relaxed mb-2">
                             Serie di clip e contenuti visuali curati per l'identità del gruppo Sven.
                         </p>
                         <a href="https://www.instagram.com/reel/Czd1s6NRAYq/" target="_blank" rel="noopener noreferrer" 
@@ -153,11 +158,11 @@
             </div>
         </section>
 
-        <!-- 3. Sezione Musica: Basso (Pannello Sughero) -->
-        <section class="cork-panel rounded-3xl p-8 md:p-12">
-            <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Quattro Corde & Suono</span>
+        <!-- 3. Sezione Musica: Basso (Sughero Puro) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12 cork-text-shadow">
+            <span class="text-citric font-bold uppercase tracking-widest text-xs">Quattro Corde & Suono</span>
             <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">Bassista & Compositore</h2>
-            <p class="text-neutral-200 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+            <p class="text-neutral-100 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
                 Ho iniziato a suonare il basso nel post-Covid: l'idea di emulare i miei artisti preferiti mi galvanizzava. Dalla composizione di riff grezzi alle prove in cantina fino al palco.
             </p>
 
@@ -169,7 +174,7 @@
                     <div>
                         <h3 class="text-2xl font-bold text-white">Sven</h3>
                         <a href="https://instagram.com/Sven.cu.mammata" target="_blank" rel="noopener noreferrer" class="text-xs text-citric hover:underline font-mono">@Sven.cu.mammata ↗</a>
-                        <p class="text-neutral-300 text-sm leading-relaxed mt-2">
+                        <p class="text-neutral-100 text-sm leading-relaxed mt-2">
                             Il gruppo creato insieme ai miei amici. Basso distorto, composizione collettiva e attitudine diretta.
                         </p>
                     </div>
@@ -181,7 +186,7 @@
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold text-white">Jovo</h3>
-                        <p class="text-neutral-300 text-sm leading-relaxed mt-2">
+                        <p class="text-neutral-100 text-sm leading-relaxed mt-2">
                             Collaborazione musicale dal vivo e in studio: sessioni, arrangiamenti e live condivisi.
                         </p>
                     </div>
@@ -189,16 +194,16 @@
             </div>
         </section>
 
-        <!-- 4. Sezione Isolarte Founder (Pannello Sughero) -->
-        <section class="cork-panel rounded-3xl p-8 md:p-12">
+        <!-- 4. Sezione Isolarte Founder (Sughero Puro) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12 cork-text-shadow">
             <div class="grid md:grid-cols-3 gap-8 items-center">
                 <div class="md:col-span-2">
                     <span class="text-citric font-bold uppercase tracking-widest text-xs">Collettivo & Territorio</span>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">Co-Founder di Isolarte</h2>
-                    <p class="text-neutral-200 text-sm md:text-base leading-relaxed mb-4">
+                    <p class="text-neutral-100 text-sm md:text-base leading-relaxed mb-4">
                         Insieme a 2 compagn* ho avuto l'onore di fondare il progetto Isolarte. I miei compiti sono prevalentemente organizzativi e di pubbliche relazioni: trovare gli artisti, parlare con i referenti degli eventi e far quadrare i conti affinché il progetto sia sostenibile e indipendente.
                     </p>
-                    <p class="text-neutral-400 text-sm leading-relaxed">
+                    <p class="text-neutral-200 text-sm leading-relaxed">
                         Allo stesso tempo è stata l'occasione ideale per togliermi parecchie velleità artistiche tra grafica, concept e iniziative dal vivo.
                     </p>
                 </div>
@@ -208,23 +213,23 @@
             </div>
         </section>
 
-        <!-- 5. Sezione Kyunos The Game (Pannello Sughero) -->
-        <section class="cork-panel rounded-3xl p-8 md:p-12">
+        <!-- 5. Sezione Kyunos The Game (Sughero Puro) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12 cork-text-shadow">
             <div class="grid md:grid-cols-3 gap-8 items-center">
                 <div class="w-full max-w-[280px] mx-auto flex items-center justify-center order-2 md:order-1">
                     <img src="asset/kyunos-screen.png" alt="Kyunos Game Screen" class="w-full h-auto object-cover rounded-xl png-art-shadow -rotate-2 hover:rotate-0 transition duration-300">
                 </div>
                 <div class="md:col-span-2 order-1 md:order-2">
-                    <span class="text-fuchsia font-bold uppercase tracking-widest text-xs">Game Design & Sviluppo</span>
+                    <span class="text-citric font-bold uppercase tracking-widest text-xs">Game Design & Sviluppo</span>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">Kyunos: The Game</h2>
-                    <p class="text-neutral-200 text-sm md:text-base leading-relaxed mb-4">
-                        Game designer e programmatore del videogioco promozionale per la band <strong class="text-white">Hunos</strong>, basato sulla loro mascotte ufficiale. Sviluppato interamente con <strong class="text-citric">Godot Engine</strong> (GDScript/Python).
+                    <p class="text-neutral-100 text-sm md:text-base leading-relaxed mb-4">
+                        Game designer e programmatore del videogioco promozionale per la band <strong class="text-white font-bold">Hunos</strong>, basato sulla loro mascotte ufficiale. Sviluppato interamente con <strong class="text-citric font-bold">Godot Engine</strong> (GDScript/Python).
                     </p>
                     <div class="flex flex-wrap gap-4 items-center mt-6">
                         <a href="index.html#progetti" class="text-xs font-bold uppercase bg-citric text-black px-5 py-2.5 rounded-xl hover:bg-fuchsia hover:text-white transition shadow-lg">
                             ▶ Giocalo nella Home
                         </a>
-                        <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-neutral-300 hover:text-white transition">
+                        <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-white hover:text-citric transition underline">
                             Pagina Itch.io ↗
                         </a>
                     </div>
@@ -232,21 +237,20 @@
             </div>
         </section>
 
-        <!-- 6. Sezione Web Dev con Video Scarafaggio in Loop -->
-        <section class="cork-panel rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+        <!-- 6. Sezione Web Dev con Video Scarafaggio (Sughero Puro) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 cork-text-shadow">
             <div class="max-w-md">
-                <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Sviluppo Web</span>
+                <span class="text-citric font-bold uppercase tracking-widest text-xs">Sviluppo Web</span>
                 <h2 class="text-3xl font-extrabold text-white mt-1 mb-2">Web Design Artigianale</h2>
-                <p class="text-neutral-200 text-base leading-relaxed">
-                    Ho scritto e sviluppato interamente questo sito web <span class="text-fuchsia font-mono">&lt;&lt;&lt;&lt;33333</span>.
+                <p class="text-neutral-100 text-base leading-relaxed">
+                    Ho scritto e sviluppato interamente questo sito web <span class="text-fuchsia font-mono font-bold">&lt;&lt;&lt;&lt;33333</span>.
                 </p>
-                <p class="text-neutral-400 text-xs font-mono mt-2">
+                <p class="text-neutral-200 text-xs font-mono mt-2">
                     Hostato su GitHub • Scritto in puro HTML semantico, TailwindCSS & Alpine.js.
                 </p>
             </div>
 
-            <!-- Video Scarafaggio in Loop Autoplay -->
-            <div class="w-36 h-36 md:w-44 md:h-44 shrink-0 rounded-2xl overflow-hidden png-art-shadow border border-neutral-700/60 bg-black/40 flex items-center justify-center">
+            <div class="w-36 h-36 md:w-44 md:h-44 shrink-0 rounded-2xl overflow-hidden png-art-shadow border border-black/40 flex items-center justify-center">
                 <video src="asset/scarafaggio.mp4" 
                        autoplay 
                        loop 
