@@ -38,10 +38,10 @@
             filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.85));
         }
 
-        /* Bacheca di Sughero con velo scuro calibrato (~30-32% opacità) */
+        /* Bacheca di Sughero con velo scuro calibrato */
         .cork-panel {
-            background-color: #7c5836;
-            background-image: linear-gradient(rgba(10, 10, 12, 0.32), rgba(10, 10, 12, 0.35)), url('asset/sughero.png');
+            background-color: #5a3d24;
+            background-image: linear-gradient(rgba(10, 10, 12, 0.52), rgba(10, 10, 12, 0.55)), url('asset/sughero.png');
             background-size: cover;
             background-position: center;
             border: 2px solid rgba(205, 245, 100, 0.3);
@@ -236,7 +236,7 @@
             </div>
         </section>
 
-        <!-- 6. Sezione Web Dev con Video Scarafaggio -->
+        <!-- 6. Sezione Web Dev con Immagine sito.png -->
         <section class="cork-panel rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 cork-text-shadow">
             <div class="max-w-md">
                 <span class="text-citric font-bold uppercase tracking-widest text-xs">Sviluppo Web</span>
@@ -249,15 +249,8 @@
                 </p>
             </div>
 
-            <div class="w-36 h-36 md:w-44 md:h-44 shrink-0 rounded-2xl overflow-hidden png-art-shadow border border-black/40 flex items-center justify-center">
-                <video src="asset/scarafaggio.mp4" 
-                       autoplay 
-                       loop 
-                       muted 
-                       playsinline 
-                       preload="auto"
-                       class="w-full h-full object-cover pointer-events-none">
-                </video>
+            <div class="w-36 md:w-52 shrink-0 flex items-center justify-center">
+                <img src="asset/sito.png" alt="Sito Web Handcrafted" class="w-full h-auto object-contain png-art-shadow rotate-2 hover:rotate-0 transition duration-300">
             </div>
         </section>
 
