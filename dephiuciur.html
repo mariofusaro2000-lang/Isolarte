@@ -40,20 +40,12 @@
 
         /* Pannello Bacheca di Sughero */
         .cork-panel {
-            background-color: #1a1512; /* colore caldo di base */
+            background-color: #1a1512;
             background-image: linear-gradient(rgba(10, 10, 12, 0.82), rgba(10, 10, 12, 0.88)), url('asset/sughero.png');
             background-size: cover;
             background-position: center;
             border: 2px solid rgba(205, 245, 100, 0.2);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(0, 0, 0, 0.7);
-        }
-
-        @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-            animation: spin-slow 14s linear infinite;
         }
     </style>
 </head>
@@ -101,7 +93,6 @@
                         "Da quest'inizio può sembrare che passi le mie giornate davanti a computer grigi a guardare numeri e big data scorrere come i pazzi... ma..."
                     </p>
                 </div>
-                <!-- Foto Laurea libera (senza box nero) -->
                 <div class="w-full max-w-[280px] mx-auto flex items-center justify-center">
                     <img src="asset/foto-laurea.png" alt="Laurea Marco" class="w-full h-auto object-cover rounded-xl png-art-shadow -rotate-1 hover:rotate-0 transition duration-300">
                 </div>
@@ -171,7 +162,6 @@
             </p>
 
             <div class="grid md:grid-cols-2 gap-10 items-start">
-                <!-- Sven -->
                 <div class="flex flex-col justify-between">
                     <div class="w-full max-w-[320px] mx-auto mb-5">
                         <img src="asset/sven.png" alt="Sven" class="w-full h-auto object-cover rounded-xl png-art-shadow -rotate-2 hover:rotate-0 transition duration-300">
@@ -185,7 +175,6 @@
                     </div>
                 </div>
 
-                <!-- Jovo -->
                 <div class="flex flex-col justify-between">
                     <div class="w-full max-w-[320px] mx-auto mb-5">
                         <img src="asset/jovo.png" alt="Jovo" class="w-full h-auto object-cover rounded-xl png-art-shadow rotate-2 hover:rotate-0 transition duration-300">
@@ -213,7 +202,6 @@
                         Allo stesso tempo è stata l'occasione ideale per togliermi parecchie velleità artistiche tra grafica, concept e iniziative dal vivo.
                     </p>
                 </div>
-                <!-- Foto Isolarte libera -->
                 <div class="w-full max-w-[280px] mx-auto flex items-center justify-center">
                     <img src="asset/isolarte-founder.png" alt="Isolarte Founder" class="w-full h-auto object-cover rounded-xl png-art-shadow rotate-1 hover:rotate-0 transition duration-300">
                 </div>
@@ -223,7 +211,6 @@
         <!-- 5. Sezione Kyunos The Game (Pannello Sughero) -->
         <section class="cork-panel rounded-3xl p-8 md:p-12">
             <div class="grid md:grid-cols-3 gap-8 items-center">
-                <!-- Screenshot Kyunos libero -->
                 <div class="w-full max-w-[280px] mx-auto flex items-center justify-center order-2 md:order-1">
                     <img src="asset/kyunos-screen.png" alt="Kyunos Game Screen" class="w-full h-auto object-cover rounded-xl png-art-shadow -rotate-2 hover:rotate-0 transition duration-300">
                 </div>
@@ -245,9 +232,9 @@
             </div>
         </section>
 
-        <!-- 6. Sezione Web Dev con Spirale (Pannello Sughero) -->
+        <!-- 6. Sezione Web Dev con Video Scarafaggio in Loop -->
         <section class="cork-panel rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
+            <div class="max-w-md">
                 <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Sviluppo Web</span>
                 <h2 class="text-3xl font-extrabold text-white mt-1 mb-2">Web Design Artigianale</h2>
                 <p class="text-neutral-200 text-base leading-relaxed">
@@ -258,11 +245,16 @@
                 </p>
             </div>
 
-            <!-- Spirale rotante -->
-            <div class="shrink-0 flex items-center justify-center">
-                <svg class="w-24 h-24 text-citric animate-spin-slow" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
-                    <path d="M50 50 A 5 5 0 0 1 55 50 A 10 10 0 0 1 45 50 A 15 15 0 0 1 60 50 A 20 20 0 0 1 40 50 A 25 25 0 0 1 65 50 A 30 30 0 0 1 35 50 A 35 35 0 0 1 70 50 A 40 40 0 0 1 30 50" stroke-linecap="round"/>
-                </svg>
+            <!-- Video Scarafaggio in Loop Autoplay -->
+            <div class="w-36 h-36 md:w-44 md:h-44 shrink-0 rounded-2xl overflow-hidden png-art-shadow border border-neutral-700/60 bg-black/40 flex items-center justify-center">
+                <video src="asset/scarafaggio.mp4" 
+                       autoplay 
+                       loop 
+                       muted 
+                       playsinline 
+                       preload="auto"
+                       class="w-full h-full object-cover pointer-events-none">
+                </video>
             </div>
         </section>
 
