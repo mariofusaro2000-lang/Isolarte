@@ -98,6 +98,7 @@
         </div>
     </section>
 
+    <!-- Griglia Artisti -->
     <section id="artisti" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800/80">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
@@ -165,21 +166,22 @@
                 </div>
             </div>
 
+            <!-- Card The Future (Sostituto di Niccolines) -->
             <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
                 <div>
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-white">Niccolines</h3>
+                        <h3 class="text-2xl font-bold text-white">The Future</h3>
                         <span class="text-[10px] bg-spearmint/20 text-spearmint border border-spearmint/40 px-2.5 py-0.5 rounded-full font-bold uppercase">Open Comms</span>
                     </div>
-                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Pittura materica, acrilico su tela e contrasti intensi.</p>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-4">Pixel art, game design, atmosfere retro-futuristiche e sound visual.</p>
                     <div class="flex flex-wrap gap-1.5 mb-6">
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Pittura</span>
-                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Acrilico</span>
+                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Game Dev</span>
+                        <span class="text-[11px] bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded-md">Pixel Art</span>
                     </div>
                 </div>
                 <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-                    <a href="niccolines.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
-                    <a href="mailto:niccolines@isolarte.fake?subject=Commissione%20Niccolines" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">Commissiona</a>
+                    <a href="the-future.html" class="text-xs font-bold text-citric hover:underline">Portfolio Completo →</a>
+                    <a href="mailto:thefuture@isolarte.fake?subject=Commissione%20The%20Future" class="text-xs bg-neutral-800 hover:bg-fuchsia text-white px-3 py-1.5 rounded-lg transition font-medium">Commissiona</a>
                 </div>
             </div>
 
@@ -375,7 +377,6 @@
             <!-- 3. FIAMMIFERI & SOLDO (AFFIANCATI) -->
             <div class="grid md:grid-cols-2 gap-10">
                 
-                <!-- Box Fiammiferi -->
                 <div class="flex flex-col justify-between">
                     <div>
                         <div class="w-full aspect-square max-w-[360px] mx-auto mb-6 flex items-center justify-center rounded-2xl overflow-hidden">
@@ -392,7 +393,6 @@
                     </div>
                 </div>
 
-                <!-- Box Soldo -->
                 <div class="flex flex-col justify-between">
                     <div>
                         <div class="w-full aspect-square max-w-[360px] mx-auto mb-6 flex items-center justify-center rounded-2xl overflow-hidden">
@@ -423,10 +423,7 @@
                     </p>
                 </div>
 
-                <!-- Game Container: rapporto d'aspetto fedele alla risoluzione nativa 854x500 -->
                 <div class="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl relative">
-                    
-                    <!-- Schermata di avvio -->
                     <div x-show="!loaded" class="w-full aspect-[854/500] min-h-[300px] flex flex-col items-center justify-center p-8 text-center bg-black/60 backdrop-blur-sm">
                         <span class="text-fuchsia font-extrabold text-4xl md:text-5xl mb-3 tracking-wider">KYUNOS</span>
                         <p class="text-neutral-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">
@@ -444,7 +441,6 @@
                         </div>
                     </div>
 
-                    <!-- Iframe ufficiale con ID 17174825 -->
                     <template x-if="loaded">
                         <div class="w-full aspect-[854/500] min-h-[320px]">
                             <iframe src="https://itch.io/embed-upload/17174825?color=0d0d0f" 
