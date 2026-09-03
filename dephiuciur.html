@@ -35,7 +35,17 @@
         }
 
         .png-art-shadow {
-            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.85));
+            filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.85));
+        }
+
+        /* Pannello Bacheca di Sughero */
+        .cork-panel {
+            background-color: #1a1512; /* colore caldo di base */
+            background-image: linear-gradient(rgba(10, 10, 12, 0.82), rgba(10, 10, 12, 0.88)), url('asset/sughero.png');
+            background-size: cover;
+            background-position: center;
+            border: 2px solid rgba(205, 245, 100, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(0, 0, 0, 0.7);
         }
 
         @keyframes spin-slow {
@@ -49,6 +59,7 @@
 </head>
 <body class="grid-paper-dark text-white min-h-screen selection:bg-citric selection:text-black">
 
+    <!-- Header / Nav di Ritorno -->
     <header class="border-b border-neutral-800/80 bg-black/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-citric hover:text-white transition">
@@ -64,9 +75,10 @@
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+    <main class="max-w-4xl mx-auto px-6 pt-16 pb-24 space-y-16">
 
-        <section class="border-b border-neutral-800/80 pb-12 mb-16">
+        <!-- Header Bio -->
+        <section class="border-b border-neutral-800/80 pb-10">
             <span class="text-citric font-bold uppercase tracking-widest text-xs">Portfolio & Note Sparse</span>
             <h1 class="text-5xl md:text-7xl font-extrabold text-white mt-2 tracking-tight">
                 dephiuciur <span class="text-fuchsia text-3xl md:text-5xl font-bold">(Marco)</span>
@@ -76,46 +88,45 @@
             </p>
         </section>
 
-        <section class="mb-20">
+        <!-- 1. Sezione Background: Statistica (Pannello Sughero) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12">
             <div class="grid md:grid-cols-3 gap-8 items-center">
                 <div class="md:col-span-2">
                     <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Background Accademico</span>
                     <h2 class="text-2xl md:text-3xl font-bold text-white mt-1 mb-4">Statistica per l'azienda (ma nulla di serio)</h2>
-                    <p class="text-neutral-300 text-sm md:text-base leading-relaxed mb-4">
+                    <p class="text-neutral-200 text-sm md:text-base leading-relaxed mb-4">
                         Laureato nel 2025 all'Unical con una tesi sulla creazione e implementazione di un database gestionale per un recovery center per animali selvatici. Ho lavorato come tirocinante curriculare per <em class="text-white not-italic font-semibold">Internet e Idee Srl</em> curando un progetto specifico sull'anticorruzione.
                     </p>
                     <p class="text-neutral-400 text-sm italic">
                         "Da quest'inizio può sembrare che passi le mie giornate davanti a computer grigi a guardare numeri e big data scorrere come i pazzi... ma..."
                     </p>
                 </div>
-                <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden border border-neutral-800 bg-black/40 flex items-center justify-center">
-                    <img src="asset/foto-laurea.png" alt="Laurea Marco" class="w-full h-full object-cover rounded-2xl png-art-shadow hover:scale-105 transition duration-300">
+                <!-- Foto Laurea libera (senza box nero) -->
+                <div class="w-full max-w-[280px] mx-auto flex items-center justify-center">
+                    <img src="asset/foto-laurea.png" alt="Laurea Marco" class="w-full h-auto object-cover rounded-xl png-art-shadow -rotate-1 hover:rotate-0 transition duration-300">
                 </div>
             </div>
         </section>
 
-        <section class="mb-20 border-t border-neutral-800/80 pt-16">
-            <div class="flex items-center gap-3 mb-2">
-                <span class="text-fuchsia font-bold uppercase tracking-widest text-xs">Video & Montaggio</span>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Videomaker</h2>
-            <p class="text-neutral-300 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+        <!-- 2. Sezione Videomaking (Pannello Sughero) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12">
+            <span class="text-fuchsia font-bold uppercase tracking-widest text-xs">Video & Montaggio</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">Videomaker</h2>
+            <p class="text-neutral-200 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
                 Monto video da quando ero ragazzino: da piccolo avrei voluto fare lo YouTuber. Negli anni ho lavorato per progetti privati, collaborazioni con amici e commissioni professionali tra regia, montaggio e color correction.
             </p>
 
             <div class="space-y-8">
-                <div class="bg-neutral-900/50 border border-neutral-800 rounded-3xl p-6 md:p-8">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Artico — Territorial Pissings (Cover)</h3>
-                            <p class="text-xs text-spearmint font-mono mt-1">Regia • Montaggio • Color Correction</p>
-                        </div>
+                <!-- Video Artico Embed -->
+                <div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+                        <h3 class="text-xl font-bold text-white">Artico — Territorial Pissings (Cover)</h3>
                         <a href="https://www.youtube.com/watch?v=dV3-ky05j6I" target="_blank" rel="noopener noreferrer" 
-                           class="text-xs font-bold bg-neutral-800 hover:bg-citric hover:text-black text-neutral-300 px-4 py-2 rounded-xl transition self-start md:self-auto">
+                           class="text-xs font-bold text-citric hover:underline self-start md:self-auto">
                             Apri su YouTube ↗
                         </a>
                     </div>
-                    <div class="w-full aspect-video rounded-2xl overflow-hidden border border-neutral-800 bg-black">
+                    <div class="w-full aspect-video rounded-2xl overflow-hidden png-art-shadow">
                         <iframe class="w-full h-full" 
                                 src="https://www.youtube.com/embed/dV3-ky05j6I" 
                                 title="Artico - Territorial Pissings Cover" 
@@ -126,25 +137,22 @@
                     </div>
                 </div>
 
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="bg-neutral-900/40 border border-neutral-800 rounded-2xl p-6 flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs text-neutral-500 font-mono">ShowReel</span>
-                            <h4 class="text-lg font-bold text-white mt-1 mb-2">2D FX Animator ShowReel</h4>
-                            <p class="text-neutral-400 text-sm leading-relaxed">
-                                Montaggio e ritmo visivo dedicato al reel di presentazione per un'amic* animatore 2D FX.
-                            </p>
-                        </div>
+                <!-- Altri Lavori Video -->
+                <div class="grid sm:grid-cols-2 gap-6 pt-4 border-t border-white/10">
+                    <div>
+                        <span class="text-xs text-neutral-400 font-mono">ShowReel</span>
+                        <h4 class="text-lg font-bold text-white mt-1 mb-1">2D FX Animator ShowReel</h4>
+                        <p class="text-neutral-300 text-sm leading-relaxed">
+                            Montaggio e ritmo visivo dedicato al reel di presentazione per un'amic* animatore 2D FX.
+                        </p>
                     </div>
 
-                    <div class="bg-neutral-900/40 border border-neutral-800 rounded-2xl p-6 flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs text-neutral-500 font-mono">Cortometraggi / Reel</span>
-                            <h4 class="text-lg font-bold text-white mt-1 mb-2">Corti Sven</h4>
-                            <p class="text-neutral-400 text-sm leading-relaxed mb-4">
-                                Serie di clip e contenuti visuali curati per l'identità del gruppo Sven.
-                            </p>
-                        </div>
+                    <div>
+                        <span class="text-xs text-neutral-400 font-mono">Cortometraggi / Reel</span>
+                        <h4 class="text-lg font-bold text-white mt-1 mb-1">Corti Sven</h4>
+                        <p class="text-neutral-300 text-sm leading-relaxed mb-2">
+                            Serie di clip e contenuti visuali curati per l'identità del gruppo Sven.
+                        </p>
                         <a href="https://www.instagram.com/reel/Czd1s6NRAYq/" target="_blank" rel="noopener noreferrer" 
                            class="text-xs font-bold text-citric hover:underline">
                             Guarda su Instagram ↗
@@ -154,81 +162,82 @@
             </div>
         </section>
 
-        <section class="mb-20 border-t border-neutral-800/80 pt-16">
+        <!-- 3. Sezione Musica: Basso (Pannello Sughero) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12">
             <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Quattro Corde & Suono</span>
             <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">Bassista & Compositore</h2>
-            <p class="text-neutral-300 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+            <p class="text-neutral-200 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
                 Ho iniziato a suonare il basso nel post-Covid: l'idea di emulare i miei artisti preferiti mi galvanizzava. Dalla composizione di riff grezzi alle prove in cantina fino al palco.
             </p>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-neutral-900/60 border border-neutral-800 rounded-3xl p-6 flex flex-col justify-between">
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <!-- Sven -->
+                <div class="flex flex-col justify-between">
+                    <div class="w-full max-w-[320px] mx-auto mb-5">
+                        <img src="asset/sven.png" alt="Sven" class="w-full h-auto object-cover rounded-xl png-art-shadow -rotate-2 hover:rotate-0 transition duration-300">
+                    </div>
                     <div>
-                        <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-neutral-800 bg-black/40 mb-6 flex items-center justify-center">
-                            <img src="asset/sven.png" alt="Sven" class="w-full h-full object-cover rounded-2xl png-art-shadow hover:scale-105 transition duration-300">
-                        </div>
                         <h3 class="text-2xl font-bold text-white">Sven</h3>
                         <a href="https://instagram.com/Sven.cu.mammata" target="_blank" rel="noopener noreferrer" class="text-xs text-citric hover:underline font-mono">@Sven.cu.mammata ↗</a>
-                        <p class="text-neutral-400 text-sm leading-relaxed mt-3">
+                        <p class="text-neutral-300 text-sm leading-relaxed mt-2">
                             Il gruppo creato insieme ai miei amici. Basso distorto, composizione collettiva e attitudine diretta.
                         </p>
                     </div>
-                    <div class="pt-4 mt-6 border-t border-neutral-800 text-xs text-spearmint font-bold uppercase tracking-wider">
-                        Ruolo: Bassista & Compositore
-                    </div>
                 </div>
 
-                <div class="bg-neutral-900/60 border border-neutral-800 rounded-3xl p-6 flex flex-col justify-between">
+                <!-- Jovo -->
+                <div class="flex flex-col justify-between">
+                    <div class="w-full max-w-[320px] mx-auto mb-5">
+                        <img src="asset/jovo.png" alt="Jovo" class="w-full h-auto object-cover rounded-xl png-art-shadow rotate-2 hover:rotate-0 transition duration-300">
+                    </div>
                     <div>
-                        <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-neutral-800 bg-black/40 mb-6 flex items-center justify-center">
-                            <img src="asset/jovo.png" alt="Jovo" class="w-full h-full object-cover rounded-2xl png-art-shadow hover:scale-105 transition duration-300">
-                        </div>
                         <h3 class="text-2xl font-bold text-white">Jovo</h3>
-                        <p class="text-neutral-400 text-sm leading-relaxed mt-3">
+                        <p class="text-neutral-300 text-sm leading-relaxed mt-2">
                             Collaborazione musicale dal vivo e in studio: sessioni, arrangiamenti e live condivisi.
                         </p>
-                    </div>
-                    <div class="pt-4 mt-6 border-t border-neutral-800 text-xs text-spearmint font-bold uppercase tracking-wider">
-                        Ruolo: Bassista & Collaboratore
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="mb-20 border-t border-neutral-800/80 pt-16">
+        <!-- 4. Sezione Isolarte Founder (Pannello Sughero) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12">
             <div class="grid md:grid-cols-3 gap-8 items-center">
                 <div class="md:col-span-2">
                     <span class="text-citric font-bold uppercase tracking-widest text-xs">Collettivo & Territorio</span>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">Co-Founder di Isolarte</h2>
-                    <p class="text-neutral-300 text-sm md:text-base leading-relaxed mb-4">
+                    <p class="text-neutral-200 text-sm md:text-base leading-relaxed mb-4">
                         Insieme a 2 compagn* ho avuto l'onore di fondare il progetto Isolarte. I miei compiti sono prevalentemente organizzativi e di pubbliche relazioni: trovare gli artisti, parlare con i referenti degli eventi e far quadrare i conti affinché il progetto sia sostenibile e indipendente.
                     </p>
                     <p class="text-neutral-400 text-sm leading-relaxed">
                         Allo stesso tempo è stata l'occasione ideale per togliermi parecchie velleità artistiche tra grafica, concept e iniziative dal vivo.
                     </p>
                 </div>
-                <div class="w-full aspect-square rounded-2xl overflow-hidden border border-neutral-800 bg-black/40 flex items-center justify-center">
-                    <img src="asset/isolarte-founder.png" alt="Isolarte Founder" class="w-full h-full object-cover rounded-2xl png-art-shadow hover:scale-105 transition duration-300">
+                <!-- Foto Isolarte libera -->
+                <div class="w-full max-w-[280px] mx-auto flex items-center justify-center">
+                    <img src="asset/isolarte-founder.png" alt="Isolarte Founder" class="w-full h-auto object-cover rounded-xl png-art-shadow rotate-1 hover:rotate-0 transition duration-300">
                 </div>
             </div>
         </section>
 
-        <section class="mb-20 border-t border-neutral-800/80 pt-16">
+        <!-- 5. Sezione Kyunos The Game (Pannello Sughero) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12">
             <div class="grid md:grid-cols-3 gap-8 items-center">
-                <div class="w-full aspect-square rounded-2xl overflow-hidden border border-neutral-800 bg-black/40 flex items-center justify-center order-2 md:order-1">
-                    <img src="asset/kyunos-screen.png" alt="Kyunos Game Screen" class="w-full h-full object-cover rounded-2xl png-art-shadow hover:scale-105 transition duration-300">
+                <!-- Screenshot Kyunos libero -->
+                <div class="w-full max-w-[280px] mx-auto flex items-center justify-center order-2 md:order-1">
+                    <img src="asset/kyunos-screen.png" alt="Kyunos Game Screen" class="w-full h-auto object-cover rounded-xl png-art-shadow -rotate-2 hover:rotate-0 transition duration-300">
                 </div>
                 <div class="md:col-span-2 order-1 md:order-2">
                     <span class="text-fuchsia font-bold uppercase tracking-widest text-xs">Game Design & Sviluppo</span>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1 mb-4">Kyunos: The Game</h2>
-                    <p class="text-neutral-300 text-sm md:text-base leading-relaxed mb-4">
+                    <p class="text-neutral-200 text-sm md:text-base leading-relaxed mb-4">
                         Game designer e programmatore del videogioco promozionale per la band <strong class="text-white">Hunos</strong>, basato sulla loro mascotte ufficiale. Sviluppato interamente con <strong class="text-citric">Godot Engine</strong> (GDScript/Python).
                     </p>
                     <div class="flex flex-wrap gap-4 items-center mt-6">
-                        <a href="index.html#progetti" class="text-xs font-bold uppercase bg-citric text-black px-5 py-2.5 rounded-xl hover:bg-fuchsia hover:text-white transition">
+                        <a href="index.html#progetti" class="text-xs font-bold uppercase bg-citric text-black px-5 py-2.5 rounded-xl hover:bg-fuchsia hover:text-white transition shadow-lg">
                             ▶ Giocalo nella Home
                         </a>
-                        <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-neutral-400 hover:text-white transition">
+                        <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-neutral-300 hover:text-white transition">
                             Pagina Itch.io ↗
                         </a>
                     </div>
@@ -236,18 +245,20 @@
             </div>
         </section>
 
-        <section class="border-t border-neutral-800/80 pt-16 flex flex-col md:flex-row items-center justify-between gap-8 bg-neutral-900/40 border border-neutral-800 rounded-3xl p-8 md:p-12">
+        <!-- 6. Sezione Web Dev con Spirale (Pannello Sughero) -->
+        <section class="cork-panel rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
                 <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Sviluppo Web</span>
                 <h2 class="text-3xl font-extrabold text-white mt-1 mb-2">Web Design Artigianale</h2>
-                <p class="text-neutral-300 text-base leading-relaxed">
+                <p class="text-neutral-200 text-base leading-relaxed">
                     Ho scritto e sviluppato interamente questo sito web <span class="text-fuchsia font-mono">&lt;&lt;&lt;&lt;33333</span>.
                 </p>
-                <p class="text-neutral-500 text-xs font-mono mt-2">
+                <p class="text-neutral-400 text-xs font-mono mt-2">
                     Hostato su GitHub • Scritto in puro HTML semantico, TailwindCSS & Alpine.js.
                 </p>
             </div>
 
+            <!-- Spirale rotante -->
             <div class="shrink-0 flex items-center justify-center">
                 <svg class="w-24 h-24 text-citric animate-spin-slow" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
                     <path d="M50 50 A 5 5 0 0 1 55 50 A 10 10 0 0 1 45 50 A 15 15 0 0 1 60 50 A 20 20 0 0 1 40 50 A 25 25 0 0 1 65 50 A 30 30 0 0 1 35 50 A 35 35 0 0 1 70 50 A 40 40 0 0 1 30 50" stroke-linecap="round"/>
@@ -257,6 +268,7 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="border-t border-neutral-800/80 py-10 text-center text-xs text-neutral-500 bg-black/60">
         <p>© 2026 dephiuciur (Marco) × Isolarte.</p>
         <a href="index.html" class="mt-2 inline-block text-citric hover:underline">Torna all'inizio della mappa</a>
