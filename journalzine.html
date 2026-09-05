@@ -49,18 +49,18 @@
                   num: '#00',
                   title: 'Giorno 0: Dove siamo finiti?',
                   date: 'Gennaio 2025',
-                  cover: 'asset/journal-zine-000.png',
+                  cover: 'numeri/numero 0.png',
                   pdf: 'numeri/0.pdf',
                   desc: 'Il primissimo numero della fanzine autoprodotta. Introduzione all\'isola immaginaria, primi manifesti e tavole degli artisti residenti.'
               }
-              /* Per il prossimo numero:
+              /* Per il prossimo numero ti basterà aggiungere:
               ,
               {
                   id: 1,
                   num: '#01',
                   title: 'Numero Uno: Il Vulcano delle Idee',
                   date: '2025',
-                  cover: 'asset/journal-zine-001.png',
+                  cover: 'numeri/numero 1.png',
                   pdf: 'numeri/1.pdf',
                   desc: 'Seconda uscita del giornaletto indipendente.'
               }
@@ -84,7 +84,6 @@
             <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-citric hover:text-white transition">
                 ← Torna a Isolarte
             </a>
-            <!-- Titolo aggiornato -->
             <span class="text-xs font-mono uppercase bg-neutral-900 border border-neutral-800 text-neutral-400 px-3 py-1 rounded-full">
                 Journalzine
             </span>
@@ -117,7 +116,7 @@
                          :class="activeIssue === item.id ? 'border-citric bg-neutral-900 ring-2 ring-citric/40 shadow-xl' : 'border-neutral-800 bg-neutral-900/40 hover:border-neutral-700'"
                          class="border rounded-2xl p-4 cursor-pointer transition flex flex-col justify-between group">
                         
-                        <!-- Anteprima Copertina con rotazione organica stile index (senza zoom interno) -->
+                        <!-- Anteprima Copertina presa da numeri/numero 0.png -->
                         <div class="aspect-[3/4] w-full rounded-xl overflow-visible p-2 flex items-center justify-center relative">
                             <img :src="item.cover" :alt="item.title" class="max-h-full w-auto object-contain png-art-shadow group-hover:rotate-1 transition duration-300">
                             <span class="absolute top-2 left-2 bg-black/80 text-citric text-xs font-mono font-bold px-2 py-0.5 rounded shadow" x-text="item.num"></span>
