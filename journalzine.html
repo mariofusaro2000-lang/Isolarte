@@ -49,12 +49,12 @@
                   pdf: 'numeri/0.pdf',
                   desc: 'Il primissimo numero della fanzine autoprodotta. Introduzione all\'isola immaginaria, primi manifesti e tavole degli artisti residenti.'
               }
-              /* Per il numero 1 basterà aggiungere:
+              /* Prossimi numeri:
               ,
               {
                   id: 1,
                   num: '#01',
-                  title: 'Numero Uno: Il Vulcano',
+                  title: 'Numero Uno',
                   date: '2025',
                   cover: 'asset/journal-zine-001.png',
                   pdf: 'numeri/1.pdf',
@@ -62,6 +62,12 @@
               }
               */
           ],
+          getViewerUrl(pdfPath) {
+              // Converte il percorso relativo in URL assoluto per il viewer universale
+              const fullUrl = new URL(pdfPath, window.location.href).href;
+              // Utilizza il web viewer universale Mozilla PDF.js compatibile con smartphone (iOS & Android)
+              return 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodeURIComponent(fullUrl);
+          },
           selectIssue(id) {
               this.activeIssue = id;
               this.$nextTick(() => {
@@ -94,7 +100,7 @@
             </span>
             <h1 class="text-4xl md:text-5xl font-extrabold text-white">Archivio Journal-Zine</h1>
             <p class="text-neutral-400 text-sm md:text-base mt-4 leading-relaxed">
-                Tutte le copie della nostra fanzine sono e saranno <strong class="text-citric">sempre libere e gratuite</strong>. Clicca su un numero per visualizzarlo direttamente nel lettore sotto.
+                Tutte le copie della nostra fanzine sono e saranno <strong class="text-citric">sempre libere e gratuite</strong>. Clicca su un numero per leggerlo direttamente nel lettore sotto.
             </p>
         </section>
 
@@ -129,8 +135,8 @@
             </div>
         </section>
 
-        <!-- SEZIONE DEL LETTORE INTEGRATO NEL SITO -->
-        <section id="lettore" class="border border-neutral-800 bg-neutral-950 rounded-3xl p-6 md:p-8 shadow-2xl">
+        <!-- SEZIONE DEL VERO LETTORE INTEGRATO (MOBILE & DESKTOP) -->
+        <section id="lettore" class="border border-neutral-800 bg-neutral-950 rounded-3xl p-4 md:p-8 shadow-2xl">
             
             <!-- Barra Superiore con Info e Bottoni -->
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
@@ -154,31 +160,20 @@
                 </div>
             </div>
 
-            <!-- Finestra del Lettore -->
-            <div class="mt-6 w-full h-[75vh] min-h-[550px] max-h-[900px] rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800">
-                <!-- 
-                  Usiamo <object> con fallback su <iframe>:
-                  non subisce blocchi CORS, funziona anche aprendo l'HTML in locale col doppio clic
-                  e carica direttamente barre di zoom, rotazione e scorrimento pagine.
-                -->
-                <object :data="issues[activeIssue].pdf + '#toolbar=1&navpanes=0&scrollbar=1'" 
-                        type="application/pdf" 
-                        class="w-full h-full">
-                    <iframe :src="issues[activeIssue].pdf" class="w-full h-full border-0">
-                        <div class="p-8 text-center flex flex-col items-center justify-center h-full">
-                            <p class="text-neutral-300 font-bold mb-2">Il visualizzatore integrato non è supportato da questo browser.</p>
-                            <a :href="issues[activeIssue].pdf" target="_blank" class="text-xs font-bold bg-citric text-black px-4 py-2 rounded-xl mt-2">
-                                Apri o Scarica il PDF
-                            </a>
-                        </div>
-                    </iframe>
-                </object>
+            <!-- Finestra del Lettore Reale con Supporto Mobile -->
+            <div class="mt-6 w-full h-[70vh] min-h-[480px] md:min-h-[650px] rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800">
+                <iframe :src="getViewerUrl(issues[activeIssue].pdf)" 
+                        class="w-full h-full border-0" 
+                        allowfullscreen
+                        loading="lazy"
+                        title="Lettore Fanzine">
+                </iframe>
             </div>
 
-            <!-- Hint Mobile -->
+            <!-- Suggerimenti d'uso -->
             <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500">
-                <span>💡 Su computer puoi sfogliare con la rotella o usare i controlli di zoom in alto.</span>
-                <span>📱 Su smartphone premi "Schermo Intero" se vuoi ingrandire le pagine.</span>
+                <span>📱 Su smartphone puoi zoomare con due dita e scorrere verticalmente le pagine.</span>
+                <span>💡 Su PC usa la barra superiore per visualizzare miniature e miniature pagine.</span>
             </div>
 
         </section>
