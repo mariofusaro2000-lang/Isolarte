@@ -34,6 +34,15 @@
                 linear-gradient(90deg, rgba(205, 245, 100, 0.02) 1px, transparent 1px);
             background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
         }
+
+        /* Ombra d'appoggio morbida per dare spessore reale alla bustina */
+        .zine-depth-shadow {
+            filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.65));
+        }
+
+        .zine-depth-shadow-hover {
+            filter: drop-shadow(0 28px 36px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 15px rgba(205, 245, 100, 0.15));
+        }
     </style>
 </head>
 <body class="grid-paper-dark text-white min-h-screen selection:bg-citric selection:text-black"
@@ -49,6 +58,18 @@
                   pdf: 'numeri/0.pdf',
                   desc: 'Il primissimo numero della fanzine autoprodotta. Introduzione all\'isola immaginaria, primi manifesti e tavole degli artisti residenti.'
               }
+              /* Prossimo numero da decommentare:
+              ,
+              {
+                  id: 1,
+                  num: '#01',
+                  title: 'Numero Uno: Il Vulcano delle Idee',
+                  date: 'Marzo 2025',
+                  cover: 'numeri/numero 1.png',
+                  pdf: 'numeri/1.pdf',
+                  desc: 'Seconda uscita del giornaletto indipendente.'
+              }
+              */
           ],
           getViewerUrl(pdfPath) {
               const fullUrl = new URL(pdfPath, window.location.href).href;
@@ -78,72 +99,95 @@
 
     <main class="max-w-6xl mx-auto px-6 pt-12 pb-24">
 
-        <section class="text-center max-w-2xl mx-auto mb-14">
+        <section class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-black bg-citric font-bold uppercase tracking-widest text-xs px-4 py-1.5 rounded-full inline-block mb-3">
                 Edizione Cartacea & Digitale
             </span>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white">Archivio Journal-Zine</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">Archivio Journal-Zine</h1>
             <p class="text-neutral-400 text-sm md:text-base mt-4 leading-relaxed">
-                Tutte le copie della nostra fanzine sono e saranno <strong class="text-citric">sempre libere e gratuite</strong>. Clicca su un numero per visualizzarlo direttamente nel lettore sotto.
+                Tutte le copie della nostra fanzine sono e saranno <strong class="text-citric">sempre libere e gratuite</strong>. Seleziona una copia sigillata per aprirla direttamente nel banco di lettura sottostante.
             </p>
         </section>
 
-        <section class="mb-14">
-            <h2 class="text-xs font-bold uppercase tracking-widest text-spearmint mb-6">Seleziona il numero da leggere</h2>
+        <section class="mb-20">
+            <div class="flex items-center justify-between mb-8 pb-3 border-b border-neutral-800/80">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-spearmint">Catalogo Uscite</h2>
+                <span class="text-xs font-mono text-neutral-500">Clicca per aprire nel lettore</span>
+            </div>
             
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <template x-for="(item, index) in issues" :key="item.id">
                     <div @click="selectIssue(item.id)"
-                         :class="activeIssue === item.id ? 'border-citric bg-neutral-900/60 ring-2 ring-citric/40 shadow-xl' : 'border-neutral-800 bg-neutral-900/40 hover:border-neutral-700'"
-                         class="border rounded-2xl p-4 cursor-pointer transition flex flex-col justify-between group">
+                         :class="activeIssue === item.id 
+                            ? 'border-citric bg-neutral-900/60 ring-2 ring-citric/30' 
+                            : 'border-neutral-800 bg-neutral-900/30 hover:border-neutral-700'"
+                         class="group border rounded-3xl p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between relative overflow-hidden backdrop-blur-sm">
                         
-                        <div class="aspect-[3/4] w-full overflow-visible p-2 flex items-center justify-center relative">
-                            <img :src="item.cover" 
-                                 :alt="item.title" 
-                                 class="max-h-full w-auto object-contain mix-blend-screen group-hover:rotate-1 group-hover:scale-105 transition duration-300">
-                            <span class="absolute top-2 left-2 bg-black/80 text-citric text-xs font-mono font-bold px-2 py-0.5 rounded shadow border border-neutral-800" x-text="item.num"></span>
+                        <div x-show="activeIssue === item.id" 
+                             class="absolute -top-12 -right-12 w-32 h-32 bg-citric/10 blur-2xl pointer-events-none rounded-full"></div>
+
+                        <div class="w-full py-4 flex items-center justify-center relative">
+                            <div class="relative transition-all duration-300 ease-out group-hover:-translate-y-2 group-hover:scale-[1.03]">
+                                
+                                <img :src="item.cover" 
+                                     :alt="item.title" 
+                                     class="max-h-[340px] w-auto object-contain zine-depth-shadow group-hover:zine-depth-shadow-hover -rotate-1 group-hover:rotate-0 transition-all duration-300">
+                                
+                                <span class="absolute top-4 left-2 bg-black/90 text-citric text-[10px] font-mono font-bold tracking-wider px-2 py-0.5 rounded border border-citric/40 shadow-lg uppercase" 
+                                      x-text="item.num"></span>
+                            </div>
                         </div>
 
-                        <div class="mt-3">
-                            <span class="text-[11px] text-neutral-500 font-mono" x-text="item.date"></span>
-                            <h3 class="text-sm font-bold text-white mt-0.5 line-clamp-1 group-hover:text-citric transition" x-text="item.title"></h3>
+                        <div class="pt-4 border-t border-neutral-800/80 mt-2">
+                            <div class="flex items-center justify-between text-[11px] font-mono text-neutral-500 mb-1">
+                                <span x-text="item.date"></span>
+                                <span class="text-spearmint font-bold">Free PDF</span>
+                            </div>
+                            <h3 class="text-base font-bold text-white group-hover:text-citric transition line-clamp-1" x-text="item.title"></h3>
+                            <p class="text-neutral-400 text-xs mt-1.5 line-clamp-2 leading-relaxed" x-text="item.desc"></p>
                         </div>
 
-                        <div class="mt-3 pt-3 border-t border-neutral-800 flex items-center justify-between text-xs">
-                            <span class="font-bold text-xs" :class="activeIssue === item.id ? 'text-citric' : 'text-neutral-400'">
-                                <span x-show="activeIssue === item.id">In Lettura ●</span>
-                                <span x-show="activeIssue !== item.id">Carica nel Lettore ↓</span>
-                            </span>
+                        <div class="mt-4 pt-3">
+                            <div :class="activeIssue === item.id 
+                                    ? 'bg-citric text-black font-extrabold' 
+                                    : 'bg-neutral-800 text-neutral-300 group-hover:bg-neutral-700 group-hover:text-white'"
+                                 class="w-full py-2.5 rounded-xl text-xs uppercase tracking-wider text-center font-bold transition flex items-center justify-center gap-2">
+                                <span x-show="activeIssue === item.id" class="inline-block w-2 h-2 rounded-full bg-black animate-pulse"></span>
+                                <span x-text="activeIssue === item.id ? 'Aperto nel Lettore' : 'Sfoglia Fascicolo →'"></span>
+                            </div>
                         </div>
+
                     </div>
                 </template>
             </div>
         </section>
 
-        <section id="lettore" class="border border-neutral-800 bg-neutral-950 rounded-3xl p-4 md:p-8 shadow-2xl">
+        <section id="lettore" class="border border-neutral-800 bg-neutral-950/90 rounded-3xl p-5 md:p-8 shadow-2xl backdrop-blur-md">
             
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-5 pb-6 border-b border-neutral-800">
                 <div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-xs bg-citric text-black font-bold uppercase px-2.5 py-0.5 rounded font-mono" x-text="issues[activeIssue].num"></span>
-                        <h2 class="text-2xl font-extrabold text-white" x-text="issues[activeIssue].title"></h2>
+                    <div class="flex items-center gap-2.5 mb-1.5">
+                        <span class="text-xs bg-citric text-black font-extrabold uppercase px-2.5 py-0.5 rounded font-mono" x-text="issues[activeIssue].num"></span>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-white" x-text="issues[activeIssue].title"></h2>
                     </div>
-                    <p class="text-neutral-400 text-sm mt-1 max-w-xl leading-relaxed" x-text="issues[activeIssue].desc"></p>
+                    <p class="text-neutral-400 text-sm max-w-2xl leading-relaxed" x-text="issues[activeIssue].desc"></p>
                 </div>
 
                 <div class="flex flex-wrap items-center gap-3 shrink-0">
                     <a :href="issues[activeIssue].pdf" target="_blank" rel="noopener noreferrer"
-                       class="text-xs font-bold bg-neutral-900 hover:bg-neutral-800 text-white px-4 py-2.5 rounded-xl border border-neutral-700 transition">
-                        Schermo Intero ↗
+                       class="text-xs font-bold bg-neutral-900 hover:bg-neutral-800 text-white px-4 py-2.5 rounded-xl border border-neutral-700 transition flex items-center gap-1.5">
+                        <span>Schermo Intero</span>
+                        <span>↗</span>
                     </a>
                     <a :href="issues[activeIssue].pdf" download
-                       class="text-xs font-bold bg-citric hover:bg-fuchsia text-black hover:text-white px-4 py-2.5 rounded-xl transition shadow-lg">
-                        Scarica PDF ↓
+                       class="text-xs font-bold bg-citric hover:bg-fuchsia text-black hover:text-white px-5 py-2.5 rounded-xl transition shadow-lg flex items-center gap-1.5">
+                        <span>Scarica PDF</span>
+                        <span>↓</span>
                     </a>
                 </div>
             </div>
 
-            <div class="mt-6 w-full h-[70vh] min-h-[480px] md:min-h-[650px] rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800">
+            <div class="mt-6 w-full h-[72vh] min-h-[500px] md:min-h-[700px] rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 shadow-inner">
                 <iframe :src="getViewerUrl(issues[activeIssue].pdf)" 
                         class="w-full h-full border-0" 
                         allowfullscreen
@@ -152,9 +196,9 @@
                 </iframe>
             </div>
 
-            <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500">
-                <span>📱 Su smartphone puoi zoomare con due dita e scorrere verticalmente le pagine.</span>
-                <span>💡 Su PC usa la barra superiore per visualizzare miniature e zoom.</span>
+            <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500 font-mono">
+                <span>📱 Touch: scorri e fai pinch-to-zoom con due dita</span>
+                <span>🖥 Desktop: rotella per scorrere o controlli zoom in alto</span>
             </div>
 
         </section>
