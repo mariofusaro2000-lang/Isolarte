@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal-Zine | Archivio & Lettore Fanzine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spearmint: '#4b917d',
+                        fuchsia: '#f037a5',
+                        citric: '#cdf564',
+                        dark: '#0a0a0a'
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .grid-paper-dark {
+            background-color: #0d0d0f;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(rgba(205, 245, 100, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(205, 245, 100, 0.02) 1px, transparent 1px);
+            background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+        }
+    </style>
+</head>
+<body class="grid-paper-dark text-white min-h-screen selection:bg-citric selection:text-black"
+      x-data="{
+          activeIssue: 0,
+          issues: [
+              {
+                  id: 0,
+                  num: '#00',
+                  title: 'Giorno Zero: L\'Inizio dell\'Isola',
+                  date: 'Gennaio 2025',
+                  cover: 'asset/journal-zine-000.png',
+                  pdf: 'numeri/0.pdf',
+                  desc: 'Il primissimo numero della fanzine autoprodotta. Introduzione all\'isola immaginaria, primi manifesti e tavole degli artisti residenti.'
+              }
+              /* Per il numero 1 basterà aggiungere:
+              ,
+              {
+                  id: 1,
+                  num: '#01',
+                  title: 'Numero Uno: Il Vulcano',
+                  date: '2025',
+                  cover: 'asset/journal-zine-001.png',
+                  pdf: 'numeri/1.pdf',
+                  desc: 'Seconda uscita del giornaletto indipendente.'
+              }
+              */
+          ],
+          selectIssue(id) {
+              this.activeIssue = id;
+              this.$nextTick(() => {
+                  document.getElementById('lettore')?.scrollIntoView({ behavior: 'smooth' });
+              });
+          }
+      }">
+
+    <!-- Header / Nav -->
+    <header class="border-b border-neutral-800/80 bg-black/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-citric hover:text-white transition">
+                ← Torna a Isolarte
+            </a>
+            <span class="text-xs font-mono uppercase bg-neutral-900 border border-neutral-800 text-neutral-400 px-3 py-1 rounded-full">
+                Lettore Fanzine Integrato
+            </span>
+            <a href="index.html#artisti" class="text-xs font-bold uppercase bg-fuchsia text-white px-4 py-2 rounded-full hover:bg-citric hover:text-black transition">
+                Artisti
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pt-12 pb-24">
+
+        <!-- Intro -->
+        <section class="text-center max-w-2xl mx-auto mb-14">
+            <span class="text-black bg-citric font-bold uppercase tracking-widest text-xs px-4 py-1.5 rounded-full inline-block mb-3">
+                Edizione Cartacea & Digitale
+            </span>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white">Archivio Journal-Zine</h1>
+            <p class="text-neutral-400 text-sm md:text-base mt-4 leading-relaxed">
+                Tutte le copie della nostra fanzine sono e saranno <strong class="text-citric">sempre libere e gratuite</strong>. Clicca su un numero per visualizzarlo direttamente nel lettore sotto.
+            </p>
+        </section>
+
+        <!-- Griglia Selezione Numeri -->
+        <section class="mb-14">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-spearmint mb-6">Seleziona il numero da leggere</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                <template x-for="(item, index) in issues" :key="item.id">
+                    <div @click="selectIssue(item.id)"
+                         :class="activeIssue === item.id ? 'border-citric bg-neutral-900 ring-2 ring-citric/40 shadow-xl' : 'border-neutral-800 bg-neutral-900/40 hover:border-neutral-700'"
+                         class="border rounded-2xl p-4 cursor-pointer transition flex flex-col justify-between group">
+                        
+                        <div class="aspect-[3/4] w-full rounded-xl overflow-hidden bg-black/50 mb-3 flex items-center justify-center relative">
+                            <img :src="item.cover" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            <span class="absolute top-2 left-2 bg-black/80 text-citric text-xs font-mono font-bold px-2 py-0.5 rounded" x-text="item.num"></span>
+                        </div>
+
+                        <div>
+                            <span class="text-[11px] text-neutral-500 font-mono" x-text="item.date"></span>
+                            <h3 class="text-sm font-bold text-white mt-0.5 line-clamp-1 group-hover:text-citric transition" x-text="item.title"></h3>
+                        </div>
+
+                        <div class="mt-3 pt-3 border-t border-neutral-800 flex items-center justify-between text-xs">
+                            <span class="font-bold text-xs" :class="activeIssue === item.id ? 'text-citric' : 'text-neutral-400'">
+                                <span x-show="activeIssue === item.id">In Lettura ●</span>
+                                <span x-show="activeIssue !== item.id">Carica nel Lettore ↓</span>
+                            </span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <!-- SEZIONE DEL LETTORE INTEGRATO NEL SITO -->
+        <section id="lettore" class="border border-neutral-800 bg-neutral-950 rounded-3xl p-6 md:p-8 shadow-2xl">
+            
+            <!-- Barra Superiore con Info e Bottoni -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs bg-citric text-black font-bold uppercase px-2.5 py-0.5 rounded font-mono" x-text="issues[activeIssue].num"></span>
+                        <h2 class="text-2xl font-extrabold text-white" x-text="issues[activeIssue].title"></h2>
+                    </div>
+                    <p class="text-neutral-400 text-sm mt-1 max-w-xl leading-relaxed" x-text="issues[activeIssue].desc"></p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a :href="issues[activeIssue].pdf" target="_blank" rel="noopener noreferrer"
+                       class="text-xs font-bold bg-neutral-900 hover:bg-neutral-800 text-white px-4 py-2.5 rounded-xl border border-neutral-700 transition">
+                        Schermo Intero ↗
+                    </a>
+                    <a :href="issues[activeIssue].pdf" download
+                       class="text-xs font-bold bg-citric hover:bg-fuchsia text-black hover:text-white px-4 py-2.5 rounded-xl transition shadow-lg">
+                        Scarica PDF ↓
+                    </a>
+                </div>
+            </div>
+
+            <!-- Finestra del Lettore -->
+            <div class="mt-6 w-full h-[75vh] min-h-[550px] max-h-[900px] rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800">
+                <!-- 
+                  Usiamo <object> con fallback su <iframe>:
+                  non subisce blocchi CORS, funziona anche aprendo l'HTML in locale col doppio clic
+                  e carica direttamente barre di zoom, rotazione e scorrimento pagine.
+                -->
+                <object :data="issues[activeIssue].pdf + '#toolbar=1&navpanes=0&scrollbar=1'" 
+                        type="application/pdf" 
+                        class="w-full h-full">
+                    <iframe :src="issues[activeIssue].pdf" class="w-full h-full border-0">
+                        <div class="p-8 text-center flex flex-col items-center justify-center h-full">
+                            <p class="text-neutral-300 font-bold mb-2">Il visualizzatore integrato non è supportato da questo browser.</p>
+                            <a :href="issues[activeIssue].pdf" target="_blank" class="text-xs font-bold bg-citric text-black px-4 py-2 rounded-xl mt-2">
+                                Apri o Scarica il PDF
+                            </a>
+                        </div>
+                    </iframe>
+                </object>
+            </div>
+
+            <!-- Hint Mobile -->
+            <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500">
+                <span>💡 Su computer puoi sfogliare con la rotella o usare i controlli di zoom in alto.</span>
+                <span>📱 Su smartphone premi "Schermo Intero" se vuoi ingrandire le pagine.</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-800/80 py-10 text-center text-xs text-neutral-500 bg-black/60">
+        <p>© 2026 Isolarte – Distribuzione libera e indipendente.</p>
+        <a href="index.html" class="mt-2 inline-block text-citric hover:underline">Torna alla schermata principale</a>
+    </footer>
+
+</body>
+</html>
