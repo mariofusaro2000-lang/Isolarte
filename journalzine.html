@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journal-Zine | Archivio & Lettore Fanzine</title>
+    <title>Journalzine | Archivio & Lettore Fanzine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -34,6 +34,10 @@
                 linear-gradient(90deg, rgba(205, 245, 100, 0.02) 1px, transparent 1px);
             background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
         }
+
+        .png-art-shadow {
+            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.85));
+        }
     </style>
 </head>
 <body class="grid-paper-dark text-white min-h-screen selection:bg-citric selection:text-black"
@@ -43,18 +47,18 @@
               {
                   id: 0,
                   num: '#00',
-                  title: 'Giorno Zero: L\'Inizio dell\'Isola',
+                  title: 'Giorno 0: Dove siamo finiti?',
                   date: 'Gennaio 2025',
                   cover: 'asset/journal-zine-000.png',
                   pdf: 'numeri/0.pdf',
                   desc: 'Il primissimo numero della fanzine autoprodotta. Introduzione all\'isola immaginaria, primi manifesti e tavole degli artisti residenti.'
               }
-              /* Prossimi numeri:
+              /* Per il prossimo numero:
               ,
               {
                   id: 1,
                   num: '#01',
-                  title: 'Numero Uno',
+                  title: 'Numero Uno: Il Vulcano delle Idee',
                   date: '2025',
                   cover: 'asset/journal-zine-001.png',
                   pdf: 'numeri/1.pdf',
@@ -63,9 +67,7 @@
               */
           ],
           getViewerUrl(pdfPath) {
-              // Converte il percorso relativo in URL assoluto per il viewer universale
               const fullUrl = new URL(pdfPath, window.location.href).href;
-              // Utilizza il web viewer universale Mozilla PDF.js compatibile con smartphone (iOS & Android)
               return 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodeURIComponent(fullUrl);
           },
           selectIssue(id) {
@@ -82,8 +84,9 @@
             <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-citric hover:text-white transition">
                 ← Torna a Isolarte
             </a>
+            <!-- Titolo aggiornato -->
             <span class="text-xs font-mono uppercase bg-neutral-900 border border-neutral-800 text-neutral-400 px-3 py-1 rounded-full">
-                Lettore Fanzine Integrato
+                Journalzine
             </span>
             <a href="index.html#artisti" class="text-xs font-bold uppercase bg-fuchsia text-white px-4 py-2 rounded-full hover:bg-citric hover:text-black transition">
                 Artisti
@@ -100,7 +103,7 @@
             </span>
             <h1 class="text-4xl md:text-5xl font-extrabold text-white">Archivio Journal-Zine</h1>
             <p class="text-neutral-400 text-sm md:text-base mt-4 leading-relaxed">
-                Tutte le copie della nostra fanzine sono e saranno <strong class="text-citric">sempre libere e gratuite</strong>. Clicca su un numero per leggerlo direttamente nel lettore sotto.
+                Tutte le copie della nostra fanzine sono e saranno <strong class="text-citric">sempre libere e gratuite</strong>. Clicca su un numero per visualizzarlo direttamente nel lettore sotto.
             </p>
         </section>
 
@@ -114,12 +117,13 @@
                          :class="activeIssue === item.id ? 'border-citric bg-neutral-900 ring-2 ring-citric/40 shadow-xl' : 'border-neutral-800 bg-neutral-900/40 hover:border-neutral-700'"
                          class="border rounded-2xl p-4 cursor-pointer transition flex flex-col justify-between group">
                         
-                        <div class="aspect-[3/4] w-full rounded-xl overflow-hidden bg-black/50 mb-3 flex items-center justify-center relative">
-                            <img :src="item.cover" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                            <span class="absolute top-2 left-2 bg-black/80 text-citric text-xs font-mono font-bold px-2 py-0.5 rounded" x-text="item.num"></span>
+                        <!-- Anteprima Copertina con rotazione organica stile index (senza zoom interno) -->
+                        <div class="aspect-[3/4] w-full rounded-xl overflow-visible p-2 flex items-center justify-center relative">
+                            <img :src="item.cover" :alt="item.title" class="max-h-full w-auto object-contain png-art-shadow group-hover:rotate-1 transition duration-300">
+                            <span class="absolute top-2 left-2 bg-black/80 text-citric text-xs font-mono font-bold px-2 py-0.5 rounded shadow" x-text="item.num"></span>
                         </div>
 
-                        <div>
+                        <div class="mt-2">
                             <span class="text-[11px] text-neutral-500 font-mono" x-text="item.date"></span>
                             <h3 class="text-sm font-bold text-white mt-0.5 line-clamp-1 group-hover:text-citric transition" x-text="item.title"></h3>
                         </div>
@@ -135,7 +139,7 @@
             </div>
         </section>
 
-        <!-- SEZIONE DEL VERO LETTORE INTEGRATO (MOBILE & DESKTOP) -->
+        <!-- SEZIONE DEL LETTORE INTEGRATO -->
         <section id="lettore" class="border border-neutral-800 bg-neutral-950 rounded-3xl p-4 md:p-8 shadow-2xl">
             
             <!-- Barra Superiore con Info e Bottoni -->
@@ -160,7 +164,7 @@
                 </div>
             </div>
 
-            <!-- Finestra del Lettore Reale con Supporto Mobile -->
+            <!-- Finestra del Lettore -->
             <div class="mt-6 w-full h-[70vh] min-h-[480px] md:min-h-[650px] rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800">
                 <iframe :src="getViewerUrl(issues[activeIssue].pdf)" 
                         class="w-full h-full border-0" 
@@ -173,7 +177,7 @@
             <!-- Suggerimenti d'uso -->
             <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500">
                 <span>📱 Su smartphone puoi zoomare con due dita e scorrere verticalmente le pagine.</span>
-                <span>💡 Su PC usa la barra superiore per visualizzare miniature e miniature pagine.</span>
+                <span>💡 Su PC usa la barra superiore per visualizzare miniature e zoom.</span>
             </div>
 
         </section>
