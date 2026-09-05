@@ -248,42 +248,67 @@
              x-data="{
                 slide: 0,
                 totalSlides: 3,
-                autoplayTimer: null,
-                isPaused: false,
+                timer: null,
+                isHolding: false,
+                isHovered: false,
                 touchStartX: 0,
+                touchStartY: 0,
                 touchEndX: 0,
+                touchEndY: 0,
+                delay: 5000,
+
                 init() {
-                    this.startAutoplay();
+                    this.restartTimer();
                 },
-                startAutoplay() {
-                    this.autoplayTimer = setInterval(() => {
-                        if (!this.isPaused) {
-                            this.next();
+                restartTimer() {
+                    clearInterval(this.timer);
+                    this.timer = setInterval(() => {
+                        if (!this.isHolding && !this.isHovered) {
+                            this.next(false);
                         }
-                    }, 4800);
+                    }, this.delay);
                 },
-                pause() { this.isPaused = true; },
-                resume() { this.isPaused = false; },
-                next() {
+                next(reset = true) {
                     this.slide = (this.slide + 1) % this.totalSlides;
+                    if (reset) this.restartTimer();
                 },
-                prev() {
+                prev(reset = true) {
                     this.slide = (this.slide - 1 + this.totalSlides) % this.totalSlides;
+                    if (reset) this.restartTimer();
                 },
-                handleTouchStart(e) {
+                goTo(i) {
+                    this.slide = i;
+                    this.restartTimer();
+                },
+                // Touch su Mobile: blocca subito l'autoplay
+                onTouchStart(e) {
+                    this.isHolding = true;
                     this.touchStartX = e.changedTouches[0].screenX;
-                    this.pause();
+                    this.touchStartY = e.changedTouches[0].screenY;
                 },
-                handleTouchEnd(e) {
+                onTouchEnd(e) {
                     this.touchEndX = e.changedTouches[0].screenX;
-                    if (this.touchStartX - this.touchEndX > 45) {
-                        this.next();
-                    } else if (this.touchEndX - this.touchStartX > 45) {
-                        this.prev();
+                    this.touchEndY = e.changedTouches[0].screenY;
+                    
+                    const deltaX = this.touchStartX - this.touchEndX;
+                    const deltaY = this.touchStartY - this.touchEndY;
+
+                    // Cambia slide SOLO se c'è stato un vero striscio orizzontale (minimo 45px)
+                    // e non uno scroll verticale naturale della pagina
+                    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 45) {
+                        if (deltaX > 0) {
+                            this.next(true);
+                        } else {
+                            this.prev(true);
+                        }
                     }
-                    this.resume();
+
+                    // Riprende l'autoplay solo dopo che il dito è stato sollevato
+                    this.isHolding = false;
+                    this.restartTimer();
                 }
-             }">
+             }"
+             @cartolina-interacted.window="restartTimer()">
 
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
             <div>
@@ -292,11 +317,11 @@
             </div>
             
             <div class="hidden sm:flex items-center gap-2 mt-4 sm:mt-0">
-                <button @click="prev(); pause();" type="button" aria-label="Precedente"
+                <button @click="prev()" type="button" aria-label="Precedente"
                         class="w-10 h-10 rounded-full border border-citric/30 bg-neutral-900 hover:border-citric hover:text-citric text-white flex items-center justify-center transition cursor-pointer">
                     ‹
                 </button>
-                <button @click="next(); pause();" type="button" aria-label="Successiva"
+                <button @click="next()" type="button" aria-label="Successiva"
                         class="w-10 h-10 rounded-full border border-citric/30 bg-neutral-900 hover:border-citric hover:text-citric text-white flex items-center justify-center transition cursor-pointer">
                     ›
                 </button>
@@ -304,12 +329,12 @@
         </div>
 
         <div class="relative rounded-3xl border-2 border-citric/30 hover:border-citric/60 transition-colors duration-300 bg-neutral-950/80 p-6 md:p-10 shadow-2xl backdrop-blur min-h-[440px] flex items-center"
-             @mouseenter="pause()" 
-             @mouseleave="resume()"
-             @touchstart="handleTouchStart($event)"
-             @touchend="handleTouchEnd($event)">
+             @mouseenter="isHovered = true" 
+             @mouseleave="isHovered = false; restartTimer()"
+             @touchstart="onTouchStart($event)"
+             @touchend="onTouchEnd($event)">
 
-            <div x-show="slide === 0" x-transition.opacity.duration.400ms class="w-full">
+            <div x-show="slide === 0" x-transition.opacity.duration.350ms class="w-full">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="w-full aspect-square max-w-[340px] mx-auto flex items-center justify-center">
                         <img src="asset/banchetto.png" alt="Banchetti Isolarte" class="w-full h-full object-cover rounded-2xl png-art-shadow">
@@ -331,7 +356,7 @@
                 </div>
             </div>
 
-            <div x-show="slide === 1" x-transition.opacity.duration.400ms class="w-full"
+            <div x-show="slide === 1" x-transition.opacity.duration.350ms class="w-full"
                  x-data="{
                     active: 0,
                     total: 8,
@@ -345,15 +370,21 @@
                         { artist: 'Rumeno', desc: 'Texture e stile grafico esclusivo per la zine.' },
                         { artist: 'Jokee', desc: 'Edizione speciale holo.' }
                     ],
-                    nextC() { this.active = (this.active + 1) % this.total; },
-                    prevC() { this.active = (this.active - 1 + this.total) % this.total; }
+                    nextC() { 
+                        this.active = (this.active + 1) % this.total; 
+                        this.$dispatch('cartolina-interacted');
+                    },
+                    prevC() { 
+                        this.active = (this.active - 1 + this.total) % this.total; 
+                        this.$dispatch('cartolina-interacted');
+                    }
                  }">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="relative w-full aspect-square max-w-[340px] mx-auto flex items-center justify-center rounded-2xl overflow-hidden bg-black/40">
-                        <button @click.stop="prevC()" type="button"
-                                class="absolute left-2 z-20 w-8 h-8 rounded-full bg-black/80 border border-neutral-700 text-white flex items-center justify-center font-bold cursor-pointer">‹</button>
-                        <button @click.stop="nextC()" type="button"
-                                class="absolute right-2 z-20 w-8 h-8 rounded-full bg-black/80 border border-neutral-700 text-white flex items-center justify-center font-bold cursor-pointer">›</button>
+                        <button @click.stop="prevC()" type="button" aria-label="Cartolina precedente"
+                                class="absolute left-2 z-20 w-9 h-9 rounded-full bg-black/80 border border-neutral-700 hover:border-citric text-white flex items-center justify-center font-bold cursor-pointer">‹</button>
+                        <button @click.stop="nextC()" type="button" aria-label="Cartolina successiva"
+                                class="absolute right-2 z-20 w-9 h-9 rounded-full bg-black/80 border border-neutral-700 hover:border-citric text-white flex items-center justify-center font-bold cursor-pointer">›</button>
 
                         <video x-show="active === 0" src="asset/cartolina1.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
                         <video x-show="active === 1" src="asset/cartolina2.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
@@ -382,7 +413,7 @@
                 </div>
             </div>
 
-            <div x-show="slide === 2" x-transition.opacity.duration.400ms class="w-full">
+            <div x-show="slide === 2" x-transition.opacity.duration.350ms class="w-full">
                 <div class="grid md:grid-cols-2 gap-8 items-start">
                     <div class="flex flex-col justify-between">
                         <div class="w-full aspect-[4/3] max-w-[280px] mx-auto mb-3 flex items-center justify-center">
@@ -413,7 +444,7 @@
         <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-2">
                 <template x-for="i in totalSlides" :key="i">
-                    <button @click="slide = i - 1; pause();" 
+                    <button @click="goTo(i - 1)" 
                             :class="slide === (i - 1) ? 'w-8 bg-citric' : 'w-2.5 bg-neutral-700 hover:bg-neutral-500'"
                             class="h-2 rounded-full transition-all duration-300 cursor-pointer"
                             :aria-label="'Vai alla slide ' + i">
@@ -422,7 +453,7 @@
             </div>
 
             <span class="text-xs text-neutral-500 font-mono">
-                <span class="inline sm:hidden">👈 Fai swipe per cambiare scheda</span>
+                <span class="inline sm:hidden">👈 Fai swipe per cambiare scheda (tieni premuto per fermare)</span>
                 <span class="hidden sm:inline">Passa il mouse sopra per fermare lo scorrimento</span>
             </span>
         </div>
