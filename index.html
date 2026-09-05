@@ -98,7 +98,6 @@
         </div>
     </section>
 
-    <!-- Griglia Artisti -->
     <section id="artisti" class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-800/80">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
@@ -166,7 +165,6 @@
                 </div>
             </div>
 
-            <!-- Card dephiuciur -->
             <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
                 <div>
                     <div class="flex justify-between items-start mb-4">
@@ -216,7 +214,6 @@
         </div>
     </section>
 
-    <!-- JOURNAL-ZINE (CON TASTO DIRETTO AI NUMERI) -->
     <section id="journalzine" class="py-20 border-t border-neutral-800/80">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 flex justify-center p-4">
@@ -238,7 +235,6 @@
                     <p class="text-sm text-neutral-400 leading-relaxed mb-4">
                         Il giornaletto è e sarà <strong class="text-citric">sempre gratuito</strong> per rimanere accessibile a chiunque. Per sostenere le stampe realizziamo merchandising a basso costo e spirito punk: spille, cartoline, portachiavi, collane e t-shirt.
                     </p>
-                    <!-- Tasto Diretto per l'Archivio Numeri -->
                     <a href="journalzine.html" class="inline-flex items-center gap-2 bg-citric hover:bg-fuchsia text-black hover:text-white font-bold text-xs uppercase px-5 py-3 rounded-xl transition duration-200 shadow-lg">
                         <span>Sfoglia i Numeri Online</span>
                         <span>→</span>
@@ -248,44 +244,94 @@
         </div>
     </section>
 
-    <!-- PROGETTI & COLLABORAZIONI -->
-    <section id="progetti" class="max-w-6xl mx-auto px-6 py-20 border-t border-neutral-800/80">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-white">Progetti & Collaborazioni</h2>
-            <p class="text-neutral-400 mt-2 text-sm md:text-base">Dalle presenze dal vivo con banchetti autogestiti alle produzioni d'arte indipendenti e videogiochi.</p>
+    <section id="progetti" class="max-w-5xl mx-auto px-6 py-20 border-t border-neutral-800/80"
+             x-data="{
+                slide: 0,
+                totalSlides: 3,
+                autoplayTimer: null,
+                isPaused: false,
+                touchStartX: 0,
+                touchEndX: 0,
+                init() {
+                    this.startAutoplay();
+                },
+                startAutoplay() {
+                    this.autoplayTimer = setInterval(() => {
+                        if (!this.isPaused) {
+                            this.next();
+                        }
+                    }, 4800);
+                },
+                pause() { this.isPaused = true; },
+                resume() { this.isPaused = false; },
+                next() {
+                    this.slide = (this.slide + 1) % this.totalSlides;
+                },
+                prev() {
+                    this.slide = (this.slide - 1 + this.totalSlides) % this.totalSlides;
+                },
+                handleTouchStart(e) {
+                    this.touchStartX = e.changedTouches[0].screenX;
+                    this.pause();
+                },
+                handleTouchEnd(e) {
+                    this.touchEndX = e.changedTouches[0].screenX;
+                    if (this.touchStartX - this.touchEndX > 45) {
+                        this.next();
+                    } else if (this.touchEndX - this.touchStartX > 45) {
+                        this.prev();
+                    }
+                    this.resume();
+                }
+             }">
+
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
+            <div>
+                <span class="text-citric font-bold uppercase tracking-widest text-xs">Attività & Autoproduzione</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1">Progetti & Collaborazioni</h2>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-2 mt-4 sm:mt-0">
+                <button @click="prev(); pause();" type="button" aria-label="Precedente"
+                        class="w-10 h-10 rounded-full border border-citric/30 bg-neutral-900 hover:border-citric hover:text-citric text-white flex items-center justify-center transition cursor-pointer">
+                    ‹
+                </button>
+                <button @click="next(); pause();" type="button" aria-label="Successiva"
+                        class="w-10 h-10 rounded-full border border-citric/30 bg-neutral-900 hover:border-citric hover:text-citric text-white flex items-center justify-center transition cursor-pointer">
+                    ›
+                </button>
+            </div>
         </div>
 
-        <div class="flex flex-col gap-16 max-w-4xl mx-auto">
-            
-            <!-- 1. BANCHETTI -->
-            <div class="py-4">
+        <div class="relative rounded-3xl border-2 border-citric/30 hover:border-citric/60 transition-colors duration-300 bg-neutral-950/80 p-6 md:p-10 shadow-2xl backdrop-blur min-h-[440px] flex items-center"
+             @mouseenter="pause()" 
+             @mouseleave="resume()"
+             @touchstart="handleTouchStart($event)"
+             @touchend="handleTouchEnd($event)">
+
+            <div x-show="slide === 0" x-transition.opacity.duration.400ms class="w-full">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="w-full aspect-square max-w-[420px] mx-auto flex items-center justify-center rounded-2xl overflow-visible">
-                        <img src="asset/banchetto.png" alt="Banchetti Isolarte" class="w-full h-full object-cover rounded-2xl png-art-shadow hover:rotate-2 hover:scale-100 transition duration-300">
+                    <div class="w-full aspect-square max-w-[340px] mx-auto flex items-center justify-center">
+                        <img src="asset/banchetto.png" alt="Banchetti Isolarte" class="w-full h-full object-cover rounded-2xl png-art-shadow">
                     </div>
-                    <div class="flex flex-col justify-between h-full py-2">
-                        <div>
-                            <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Territorio & Azione Dal Vivo</span>
-                            <h3 class="text-3xl md:text-4xl font-extrabold text-citric mt-1 mb-4">Banchetti</h3>
-                            <p class="text-neutral-300 text-sm md:text-base leading-relaxed mb-4">
-                                Portiamo l'arte direttamente tra le persone con i nostri banchetti dal vivo: distribuiamo gratuitamente le copie cartacee della <strong class="text-white">Journal-Zine</strong> e sosteniamo le produzioni indipendenti con poster esclusivi, merchandising d'autore, portachiavi, cartoline e spille realizzate dagli artisti del collettivo.
-                            </p>
-                            <p class="text-neutral-400 text-xs md:text-sm leading-relaxed mb-6">
-                                Uno spazio di incontro reale per parlare di autoproduzione, scambiare idee e far circolare la cultura senza intermediari.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-2 text-xs">
-                            <span class="text-spearmint font-bold uppercase tracking-wider">Collaborazioni Attive</span>
-                            <span class="text-neutral-300 font-medium">Festival delle Periferie (Aula Liberata)</span>
+                    <div>
+                        <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Territorio & Azione Dal Vivo</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-citric mt-1 mb-3">Banchetti Autogestiti</h3>
+                        <p class="text-neutral-300 text-sm leading-relaxed mb-3">
+                            Portiamo l'arte direttamente tra le persone: distribuiamo gratuitamente le copie cartacee della <strong class="text-white">Journal-Zine</strong> e sosteniamo le produzioni indipendenti con poster, merchandising d'autore, portachiavi, cartoline e spille realizzate dagli artisti del collettivo.
+                        </p>
+                        <p class="text-neutral-400 text-xs leading-relaxed mb-5">
+                            Uno spazio di incontro reale per parlare di autoproduzione, scambiare idee e far circolare cultura senza intermediari.
+                        </p>
+                        <div class="pt-3 border-t border-neutral-800 text-xs flex items-center justify-between text-neutral-400">
+                            <span>Collaborazioni Attive:</span>
+                            <span class="text-spearmint font-bold">Festival delle Periferie (Aula Liberata)</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t border-neutral-800/60"></div>
-
-            <!-- 2. CARTOLINE MASCOTTE -->
-            <div class="py-4"
+            <div x-show="slide === 1" x-transition.opacity.duration.400ms class="w-full"
                  x-data="{
                     active: 0,
                     total: 8,
@@ -299,171 +345,133 @@
                         { artist: 'Rumeno', desc: 'Texture e stile grafico esclusivo per la zine.' },
                         { artist: 'Jokee', desc: 'Edizione speciale holo.' }
                     ],
-                    next() { 
-                        this.active = (this.active + 1) % this.total; 
-                        this.$nextTick(() => { this.playActive(); });
-                    },
-                    prev() { 
-                        this.active = (this.active - 1 + this.total) % this.total; 
-                        this.$nextTick(() => { this.playActive(); });
-                    },
-                    playActive() {
-                        let v = document.getElementById('cartolina-vid-' + this.active);
-                        if (v) { v.currentTime = 0; v.play(); }
-                    }
+                    nextC() { this.active = (this.active + 1) % this.total; },
+                    prevC() { this.active = (this.active - 1 + this.total) % this.total; }
                  }">
-                
                 <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="relative w-full aspect-square max-w-[420px] mx-auto flex items-center justify-center rounded-2xl overflow-hidden">
-                        <button @click="prev()" type="button" aria-label="Precedente"
-                                class="absolute left-3 z-30 w-11 h-11 rounded-full bg-black/80 border border-neutral-700 hover:border-citric text-white hover:text-citric flex items-center justify-center transition shadow-lg text-xl font-bold cursor-pointer">
-                            ‹
-                        </button>
-                        <button @click="next()" type="button" aria-label="Successiva"
-                                class="absolute right-3 z-30 w-11 h-11 rounded-full bg-black/80 border border-neutral-700 hover:border-citric text-white hover:text-citric flex items-center justify-center transition shadow-lg text-xl font-bold cursor-pointer">
-                            ›
-                        </button>
+                    <div class="relative w-full aspect-square max-w-[340px] mx-auto flex items-center justify-center rounded-2xl overflow-hidden bg-black/40">
+                        <button @click.stop="prevC()" type="button"
+                                class="absolute left-2 z-20 w-8 h-8 rounded-full bg-black/80 border border-neutral-700 text-white flex items-center justify-center font-bold cursor-pointer">‹</button>
+                        <button @click.stop="nextC()" type="button"
+                                class="absolute right-2 z-20 w-8 h-8 rounded-full bg-black/80 border border-neutral-700 text-white flex items-center justify-center font-bold cursor-pointer">›</button>
 
-                        <video id="cartolina-vid-0" x-show="active === 0" src="asset/cartolina1.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-1" x-show="active === 1" src="asset/cartolina2.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-2" x-show="active === 2" src="asset/cartolina3.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-3" x-show="active === 3" src="asset/cartolina4.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-4" x-show="active === 4" src="asset/cartolina5.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-5" x-show="active === 5" src="asset/cartolina6.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-6" x-show="active === 6" src="asset/cartolina7.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
-                        <video id="cartolina-vid-7" x-show="active === 7" src="asset/cartolina9.mp4" 
-                               autoplay loop muted playsinline preload="auto"
-                               class="w-full h-full object-contain rounded-2xl pointer-events-none">
-                        </video>
+                        <video x-show="active === 0" src="asset/cartolina1.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
+                        <video x-show="active === 1" src="asset/cartolina2.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
+                        <video x-show="active === 2" src="asset/cartolina3.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
+                        <video x-show="active === 3" src="asset/cartolina4.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
+                        <video x-show="active === 4" src="asset/cartolina5.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
+                        <video x-show="active === 5" src="asset/cartolina6.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
+                        <video x-show="active === 6" src="asset/cartolina7.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
+                        <video x-show="active === 7" src="asset/cartolina9.mp4" autoplay loop muted playsinline class="w-full h-full object-contain"></video>
                     </div>
-
-                    <div class="flex flex-col justify-between h-full py-2">
-                        <div>
-                            <div class="flex items-start justify-between gap-4 mb-3">
-                                <div>
-                                    <span class="text-citric font-bold uppercase tracking-widest text-xs">Serie Collezionabile</span>
-                                    <h3 class="text-3xl md:text-4xl font-extrabold text-fuchsia mt-1">
-                                        Cartoline Mascotte <span class="text-citric text-2xl md:text-3xl font-bold">(Isotopo)</span>
-                                    </h3>
-                                </div>
-                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-citric px-3 py-1.5 rounded-md font-mono shrink-0" 
-                                      x-text="(active + 1) + ' / ' + total"></span>
-                            </div>
-                            <p class="text-neutral-300 text-sm md:text-base leading-relaxed mb-4" x-text="info[active].desc"></p>
-                            <p class="text-neutral-400 text-xs md:text-sm leading-relaxed mb-6">
-                                Ogni artista dell'isola reinterpreta la mascotte Isotopo secondo il proprio linguaggio visivo, tecnica e supporto.
-                            </p>
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <span class="text-citric font-bold uppercase tracking-widest text-xs">Serie Collezionabile</span>
+                            <span class="text-xs bg-neutral-900 border border-neutral-800 text-citric px-2.5 py-0.5 rounded font-mono" x-text="(active + 1) + ' / ' + total"></span>
                         </div>
-                        <div class="pt-4 border-t border-neutral-800/80 flex items-center justify-between text-xs">
-                            <span class="text-neutral-400 uppercase tracking-wider font-semibold">Creatore</span>
-                            <span class="text-spearmint font-bold text-sm tracking-wider uppercase" x-text="info[active].artist"></span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-fuchsia mb-3">Cartoline Mascotte (Isotopo)</h3>
+                        <p class="text-neutral-300 text-sm leading-relaxed mb-3" x-text="info[active].desc"></p>
+                        <p class="text-neutral-400 text-xs leading-relaxed mb-5">
+                            Ogni residente reinterpreta la mascotte secondo il proprio stile visivo, supporto e tecnica.
+                        </p>
+                        <div class="pt-3 border-t border-neutral-800 text-xs flex items-center justify-between">
+                            <span class="text-neutral-400 font-semibold">Autore:</span>
+                            <span class="text-spearmint font-bold uppercase" x-text="info[active].artist"></span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t border-neutral-800/60"></div>
-
-            <!-- 3. FIAMMIFERI & SOLDO (AFFIANCATI) -->
-            <div class="grid md:grid-cols-2 gap-10">
-                
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <div class="w-full aspect-square max-w-[360px] mx-auto mb-6 flex items-center justify-center rounded-2xl overflow-hidden">
-                            <img src="asset/fiammiferi.png" alt="Scatole di Fiammiferi d'Autore" class="w-full h-full object-contain png-art-shadow hover:scale-105 transition duration-300">
+            <div x-show="slide === 2" x-transition.opacity.duration.400ms class="w-full">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="flex flex-col justify-between">
+                        <div class="w-full aspect-[4/3] max-w-[280px] mx-auto mb-3 flex items-center justify-center">
+                            <img src="asset/fiammiferi.png" alt="Fiammiferi" class="max-h-full w-auto object-contain png-art-shadow">
                         </div>
-                        <span class="text-spearmint font-bold uppercase tracking-widest text-xs">Advertising & Satira</span>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-white mt-1 mb-3">Scatole di Fiammiferi</h3>
-                        <p class="text-neutral-300 text-sm leading-relaxed mb-3">
-                            Un'esplorazione sul supporto tascabile: i residenti del collettivo hanno reinterpretato il concept della pubblicità su scatole di fiammiferi. Dalle campagne sociali contro il fumo fino all'assurdo (vendita di pomodori e pesce-pomodoro), arrivando alla promozione web e all'autopromozione di Isolarte stessa, dove gli illustratori finiscono ritratti all'interno della grafica.
+                        <span class="text-spearmint font-bold uppercase tracking-widest text-[11px]">Advertising & Satira</span>
+                        <h4 class="text-xl font-bold text-white mt-0.5 mb-1.5">Scatole di Fiammiferi</h4>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            Concept pubblicitario tascabile: campagne anti-fumo, surrealismo e autopromozione con gli illustratori ritratti nelle grafiche.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-neutral-800/80 text-xs text-neutral-400">
-                        Concept: <span class="text-citric font-bold">Reinterpretazione Pubblicitaria</span>
-                    </div>
-                </div>
 
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <div class="w-full aspect-square max-w-[360px] mx-auto mb-6 flex items-center justify-center rounded-2xl overflow-hidden">
-                            <img src="asset/soldo.png" alt="Quadro Soldo con Specchio" class="w-full h-full object-contain png-art-shadow hover:scale-105 transition duration-300">
+                    <div class="flex flex-col justify-between pt-6 md:pt-0 border-t md:border-t-0 md:border-l border-neutral-800/80 md:pl-8">
+                        <div class="w-full aspect-[4/3] max-w-[280px] mx-auto mb-3 flex items-center justify-center">
+                            <img src="asset/soldo.png" alt="Soldo con Specchio" class="max-h-full w-auto object-contain png-art-shadow">
                         </div>
-                        <span class="text-fuchsia font-bold uppercase tracking-widest text-xs">Opera Unica & Riflessione</span>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-citric mt-1 mb-3">Il Soldo</h3>
-                        <p class="text-neutral-300 text-sm leading-relaxed mb-3">
-                            Un quadro scultoreo realizzato da una nostra illustratrice che pone al centro una riflessione sul valore e sull'identità. La moneta dipinta custodisce al suo esatto centro un piccolo specchio: chi osserva l'opera e il valore monetario ci trova riflesso il proprio stesso sguardo.
+                        <span class="text-fuchsia font-bold uppercase tracking-widest text-[11px]">Opera Unica</span>
+                        <h4 class="text-xl font-bold text-citric mt-0.5 mb-1.5">Il Soldo</h4>
+                        <p class="text-neutral-300 text-xs leading-relaxed">
+                            Quadro scultoreo a tecnica mista che integra un piccolo specchio al centro della moneta dipinta: chi osserva riflette se stesso.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-neutral-800/80 text-xs text-neutral-400">
-                        Materiali: <span class="text-spearmint font-bold">Tecnica mista & specchio su supporto</span>
-                    </div>
                 </div>
-
             </div>
 
-            <div class="border-t border-neutral-800/60"></div>
+        </div>
 
-            <!-- 4. VIDEOGAME KYUNOS (Hunos - America) -->
-            <div class="py-6" x-data="{ loaded: false }">
-                <div class="text-center max-w-2xl mx-auto mb-8">
-                    <span class="text-citric font-bold uppercase tracking-widest text-xs">Game Collab & Sound</span>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-white mt-1">Kyunos: Il Videogioco</h3>
-                    <p class="text-neutral-300 text-sm md:text-base mt-2 leading-relaxed">
-                        Esperienza interattiva creata da Isolarte per la band <strong class="text-fuchsia">Hunos</strong> in occasione dell'uscita del loro ultimo album <em class="text-citric not-italic font-semibold">"America"</em>.
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <template x-for="i in totalSlides" :key="i">
+                    <button @click="slide = i - 1; pause();" 
+                            :class="slide === (i - 1) ? 'w-8 bg-citric' : 'w-2.5 bg-neutral-700 hover:bg-neutral-500'"
+                            class="h-2 rounded-full transition-all duration-300 cursor-pointer"
+                            :aria-label="'Vai alla slide ' + i">
+                    </button>
+                </template>
+            </div>
+
+            <span class="text-xs text-neutral-500 font-mono">
+                <span class="inline sm:hidden">👈 Fai swipe per cambiare scheda</span>
+                <span class="hidden sm:inline">Passa il mouse sopra per fermare lo scorrimento</span>
+            </span>
+        </div>
+
+    </section>
+
+    <section class="max-w-5xl mx-auto px-6 pb-20">
+        <div class="bg-neutral-900/80 backdrop-blur border-2 border-citric/30 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden" 
+             x-data="{ loaded: false }">
+            
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-citric font-bold uppercase tracking-widest text-xs bg-black/50 px-3 py-1 rounded-full border border-citric/20">
+                    Game Collab & Sound
+                </span>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white mt-3">Kyunos: Il Videogioco</h3>
+                <p class="text-neutral-300 text-sm md:text-base mt-2 leading-relaxed">
+                    Esperienza interattiva creata da Isolarte per la band <strong class="text-fuchsia">Hunos</strong> in occasione dell'uscita dell'album <em class="text-citric not-italic font-semibold">"America"</em>.
+                </p>
+            </div>
+
+            <div class="w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-inner relative">
+                <div x-show="!loaded" class="w-full aspect-[16/9] min-h-[260px] md:min-h-[380px] flex flex-col items-center justify-center p-8 text-center bg-black/70 backdrop-blur-sm">
+                    <span class="text-fuchsia font-extrabold text-4xl md:text-5xl mb-2 tracking-wider">KYUNOS</span>
+                    <p class="text-neutral-400 text-xs md:text-sm max-w-md mb-6 leading-relaxed">
+                        Fai clic per caricare il gioco direttamente nella schermata oppure aprilo a tutto schermo su Itch.io.
                     </p>
-                </div>
-
-                <div class="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950 shadow-2xl relative">
-                    <div x-show="!loaded" class="w-full aspect-[854/500] min-h-[300px] flex flex-col items-center justify-center p-8 text-center bg-black/60 backdrop-blur-sm">
-                        <span class="text-fuchsia font-extrabold text-4xl md:text-5xl mb-3 tracking-wider">KYUNOS</span>
-                        <p class="text-neutral-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">
-                            Fai clic per caricare il gioco direttamente nella pagina, oppure aprilo su Itch.io a schermo intero.
-                        </p>
-                        <div class="flex flex-wrap gap-4 justify-center">
-                            <button @click="loaded = true" type="button"
-                                    class="bg-citric hover:bg-fuchsia text-black hover:text-white font-bold px-7 py-3.5 rounded-xl transition duration-200 shadow-lg text-sm uppercase tracking-wider cursor-pointer">
-                                ▶ Gioca nel Sito
-                            </button>
-                            <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer"
-                               class="bg-neutral-900 border border-neutral-700 hover:border-citric text-white font-bold px-7 py-3.5 rounded-xl transition duration-200 text-sm uppercase tracking-wider">
-                                Apri su Itch.io ↗
-                            </a>
-                        </div>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <button @click="loaded = true" type="button"
+                                class="bg-citric hover:bg-fuchsia text-black hover:text-white font-bold px-6 py-3 rounded-xl transition duration-200 shadow-lg text-xs md:text-sm uppercase tracking-wider cursor-pointer">
+                            ▶ Avvia Gioco nel Sito
+                        </button>
+                        <a href="https://defiuciur.itch.io/kyunos1" target="_blank" rel="noopener noreferrer"
+                           class="bg-neutral-900 border border-neutral-700 hover:border-citric text-white font-bold px-6 py-3 rounded-xl transition duration-200 text-xs md:text-sm uppercase tracking-wider">
+                            Apri su Itch.io ↗
+                        </a>
                     </div>
-
-                    <template x-if="loaded">
-                        <div class="w-full aspect-[854/500] min-h-[320px]">
-                            <iframe src="https://itch.io/embed-upload/17174825?color=0d0d0f" 
-                                    frameborder="0"
-                                    allowfullscreen="" 
-                                    width="100%" 
-                                    height="100%" 
-                                    class="w-full h-full border-0">
-                            </iframe>
-                        </div>
-                    </template>
                 </div>
+
+                <template x-if="loaded">
+                    <div class="w-full aspect-[16/9] min-h-[280px] md:min-h-[420px]">
+                        <iframe src="https://itch.io/embed-upload/17174825?color=0d0d0f" 
+                                frameborder="0" 
+                                allowfullscreen="" 
+                                width="100%" 
+                                height="100%" 
+                                class="w-full h-full border-0">
+                        </iframe>
+                    </div>
+                </template>
             </div>
 
         </div>
