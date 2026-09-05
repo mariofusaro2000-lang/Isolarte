@@ -166,7 +166,7 @@
                 </div>
             </div>
 
-            <!-- Card The Future (Sostituto di Niccolines) -->
+            <!-- Card dephiuciur -->
             <div class="bg-neutral-900/70 border border-neutral-800 hover:border-citric rounded-2xl p-6 transition flex flex-col justify-between backdrop-blur">
                 <div>
                     <div class="flex justify-between items-start mb-4">
@@ -216,10 +216,16 @@
         </div>
     </section>
 
+    <!-- JOURNAL-ZINE (CON TASTO DIRETTO AI NUMERI) -->
     <section id="journalzine" class="py-20 border-t border-neutral-800/80">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 flex justify-center p-4">
-                <img src="asset/journal-zine-000.png" alt="Copertina Journal-Zine Giorno 0" class="max-h-[500px] w-auto png-art-shadow hover:rotate-1 transition duration-300">
+                <a href="journalzine.html" class="group block cursor-pointer">
+                    <img src="asset/journal-zine-000.png" alt="Copertina Journal-Zine Giorno 0" class="max-h-[500px] w-auto png-art-shadow group-hover:rotate-1 group-hover:scale-105 transition duration-300">
+                    <span class="block text-center text-xs text-citric mt-3 font-mono opacity-80 group-hover:opacity-100 transition">
+                        Clicca per sfogliare la fanzine ↗
+                    </span>
+                </a>
             </div>
             <div class="order-1 md:order-2">
                 <span class="text-citric font-bold uppercase tracking-wider text-xs">Pubblicazione Indipendente</span>
@@ -229,9 +235,14 @@
                 </p>
                 <div class="bg-neutral-900/90 border-l-4 border-fuchsia p-5 rounded-r-lg mt-6 shadow-xl">
                     <h3 class="font-bold text-white mb-1">La Nostra Policy</h3>
-                    <p class="text-sm text-neutral-400 leading-relaxed">
+                    <p class="text-sm text-neutral-400 leading-relaxed mb-4">
                         Il giornaletto è e sarà <strong class="text-citric">sempre gratuito</strong> per rimanere accessibile a chiunque. Per sostenere le stampe realizziamo merchandising a basso costo e spirito punk: spille, cartoline, portachiavi, collane e t-shirt.
                     </p>
+                    <!-- Tasto Diretto per l'Archivio Numeri -->
+                    <a href="journalzine.html" class="inline-flex items-center gap-2 bg-citric hover:bg-fuchsia text-black hover:text-white font-bold text-xs uppercase px-5 py-3 rounded-xl transition duration-200 shadow-lg">
+                        <span>Sfoglia i Numeri Online</span>
+                        <span>→</span>
+                    </a>
                 </div>
             </div>
         </div>
